@@ -9,36 +9,19 @@ import SwiftUI
 
 struct HomeView: View {
     @State var descriptionNote: String = ""
-    @StateObject var vm = ViewModel()
+    @EnvironmentObject var vm: ViewModel
     
     var body: some View {
-        NavigationView{
-            VStack{
-                WheatherView()
+        NavigationStack{
+            WheatherView()
+            List{
+                
                 if ($vm.favorites.count > 0) {
-                    NavigationStack{
-                        ForEach($vm.favorites, id: \.id) { $fav in
-                            VStack{
-                                Image(systemName: "square.and.arrow.up")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(maxWidth: .infinity, maxHeight: 300)
-                                ScrollView {
-                                    Text(fav.title)
-                                        .padding()
-                                }
-                            }
-                        }
-                    }
-                    List{
-                        ForEach($vm.favorites, id: \.id) { $fav in
-                            Text(fav.title)
-                        }
+                    ForEach($vm.favorites, id: \.id) { $fav in
+                        Text(fav.title)
                     }
                 } else {
-                    NavigationStack {
-                        Text(String(localized: "NoBeers"))
-                    }
+                    Text(String(localized: "NoFavBeers"))
                 }
             }
             .navigationTitle(String(localized:"HomeTitle"))
@@ -48,4 +31,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environmentObject(ViewModel())
 }

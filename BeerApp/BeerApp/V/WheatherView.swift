@@ -14,16 +14,18 @@ struct WheatherView: View {
             RoundedRectangle(cornerRadius: 10)
                 .padding(10)
                 .frame(height: 150)
-            HStack {
-                Text("\(vm.hourlyForecasts.first?.temperature ?? 0, specifier: "%.1f")°C")
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                VStack {
+            VStack {
+                HStack {
+                    Text("\(vm.hourlyForecasts.first?.temperature ?? 0, specifier: "%.1f")°C")
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .font(.system(size: 40))
+                        .padding()
                     Text("\(vm.currentCity)")
                         .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                    Text(String(localized: "WheaterSubtitle"))
-                        .foregroundColor(.white)
-                        .font(.subheadline)
                 }
+                Text(String(localized: "WheaterSubtitle"))
+                    .foregroundColor(.white)
+                    .font(.subheadline)
             }
         }
         .onAppear {

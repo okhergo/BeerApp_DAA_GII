@@ -9,12 +9,23 @@ import Foundation
 import SwiftUI
 import PhotosUI
 
+enum BrandType: String, CaseIterable, Identifiable {
+    case nacionales, importadas
+    var id: String { self.rawValue }
+}
+
+enum BeerType: String, CaseIterable, Identifiable {
+    case lager, pilsen, IPA, pale_Ale
+    var id: String { self.rawValue }
+}
+
 final class ViewModel: ObservableObject {
     @Published var brands: [Model] = []
     @Published var favorites: [BeerModel] = []
+    
     @Published var selectedItem: PhotosPickerItem? = nil
     @Published var selectedImageData: Data? = nil
-    @Published var type: String = ""
+    @Published var type: BrandType = .nacionales
     @Published var title: String = ""
     
     init() {
@@ -22,12 +33,12 @@ final class ViewModel: ObservableObject {
     }
     
     func saveBrand() {
-        let newBrand = Model(title: title, image: selectedImageData!, type: type)
+        let newBrand = Model(title: title, image: selectedImageData!, type: type.rawValue)
         brands.insert(newBrand, at: 0)
     }
     
     func saveBeer(withId id: String) {
-        let newBeer = BeerModel(title: title, image: selectedImageData!, type: type)
+        let newBeer = BeerModel(title: title, image: selectedImageData!, type: type.rawValue)
         if let i = brands.firstIndex(where: { $0.id == id }) {
             brands[i].beers.insert(newBeer, at: 0)
         }

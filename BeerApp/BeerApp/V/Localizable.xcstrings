@@ -1,10 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "%.1f°C" : {
 
     },
     "%@" : {
+
+    },
+    "AddNewManufacturer" : {
 
     },
     "BeerList" : {
@@ -13,19 +19,25 @@
     "BeerListTitle" : {
 
     },
-    "Descartar" : {
+    "BrandListTitle" : {
+
+    },
+    "Dismiss" : {
 
     },
     "Error" : {
-
-    },
-    "Escribe un título..." : {
 
     },
     "Home" : {
 
     },
     "HomeTitle" : {
+
+    },
+    "ImportedBrand" : {
+
+    },
+    "InsertBrandName" : {
 
     },
     "LoginButton" : {
@@ -37,16 +49,16 @@
     "NoBeerAdded" : {
 
     },
-    "NoBeers" : {
+    "NoBrandAdded" : {
+
+    },
+    "NoFavBeers" : {
 
     },
     "OK" : {
 
     },
     "Password" : {
-
-    },
-    "Publicar" : {
 
     },
     "Sample" : {
@@ -66,10 +78,13 @@
         }
       }
     },
-    "Selecciona una imagen" : {
+    "Save" : {
 
     },
-    "Select a photo" : {
+    "SelectBrandType" : {
+
+    },
+    "SelectManufacturerLogo" : {
 
     },
     "Star" : {

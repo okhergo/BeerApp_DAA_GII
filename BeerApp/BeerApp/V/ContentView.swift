@@ -7,14 +7,15 @@
 
 import SwiftUI
 
+private enum Tab: Hashable {
+    case home
+    case list
+    case user
+}
+
 struct ContentView: View {
-    private enum Tab: Hashable {
-        case home
-        case list
-        case user
-    }
-    
     @StateObject var userVM = UserViewModel()
+    @StateObject var vm = ViewModel()
     @State private var selectedTab: Tab = .home
     
     var body: some View {
@@ -43,6 +44,7 @@ struct ContentView: View {
                 }
             }
         }
+        .environmentObject(vm)
         .id(selectedTab)
         .onAppear(){
             let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
