@@ -7,66 +7,62 @@
 
 import Foundation
 import SwiftUI
-
-extension UIImage {
-    var base64: String? {
-        self.jpegData(compressionQuality: 1)?.base64EncodedString()
-    }
-}
-
-extension String {
-    var img: UIImage? {
-        guard let imageData = Data(base64Encoded: self, options: .ignoreUnknownCharacters) else {
-            return nil
-        }
-        return UIImage(data: imageData)
-    }
-}
+import PhotosUI
 
 final class ViewModel: ObservableObject {
-    @Published var posts: [Model] = []
-    @Published var favorites: [Model] = []
-    @Published var isImagePickerPresented = false
-    @Published var selectedImage: UIImage?
-    @Published var captionText: String = ""
+    @Published var brands: [Model] = []
+    @Published var favorites: [BeerModel] = []
+    @Published var selectedItem: PhotosPickerItem? = nil
+    @Published var selectedImageData: Data? = nil
+    @Published var type: String = ""
     @Published var title: String = ""
     
     init() {
-        posts = getAll()
+        brands = getAll()
     }
     
-    func savePost(image: UIImage) {
-        let newPost = Model(title: title, image: image.base64!, caption: captionText)
-        posts.insert(newPost, at: 0)
+    func saveBrand() {
+        let newBrand = Model(title: title, image: selectedImageData!, type: type)
+        brands.insert(newBrand, at: 0)
+    }
+    
+    func saveBeer(withId id: String) {
+        let newBeer = BeerModel(title: title, image: selectedImageData!, type: type)
+        if let i = brands.firstIndex(where: { $0.id == id }) {
+            brands[i].beers.insert(newBeer, at: 0)
+        }
     }
     
     private func encodeAll() {
-        if let encoded = try? JSONEncoder().encode(posts) {
-            UserDefaults.standard.setValue(encoded, forKey: "posts")
+        if let encoded = try? JSONEncoder().encode(brands) {
+            UserDefaults.standard.setValue(encoded, forKey: "brands")
             UserDefaults.standard.synchronize()
         }
     }
     
     func getAll() -> [Model] {
-        if let postsData = UserDefaults.standard.object(forKey: "posts") as? Data {
-            if let posts = try? JSONDecoder().decode([Model].self, from: postsData) {
-                return posts
+        if let brandsData = UserDefaults.standard.object(forKey: "brands") as? Data {
+            if let brands = try? JSONDecoder().decode([Model].self, from: brandsData) {
+                return brands
             }
         }
         return []
     }
     
-    func remove(withId id: String) {
-        posts.removeAll(where: { $0.id == id })
+    func removeBrand(withId id: String) {
+        brands.removeAll(where: { $0.id == id })
         encodeAll()
     }
     
-    func favorite(post: Binding<Model>) {
-        post.wrappedValue.isFavorited = !post.wrappedValue.isFavorited
+    func removeBeer(withId id: String, withBrandId bid: String) {
+        if let i = brands.firstIndex(where: { $0.id == bid }) {
+            brands[i].beers.removeAll(where: { $0.id == id })
+        }
         encodeAll()
     }
     
-    func getNumberOfNotes() -> String {
-        "\(posts.count)"
+    func favoriteBeer(beer: Binding<BeerModel>) {
+        beer.wrappedValue.isFavorited = !beer.wrappedValue.isFavorited
+        encodeAll()
     }
 }

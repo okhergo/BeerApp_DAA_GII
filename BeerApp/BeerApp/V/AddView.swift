@@ -10,77 +10,70 @@ import PhotosUI
 
 struct AddView: View {
     @StateObject var vm = ViewModel()
-    @Binding var showView: Bool
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
-        if let selectedImage = vm.selectedImage {
-            VStack {
+        NavigationStack{
+            if let imageData = vm.selectedImageData, let selectedImage = UIImage(data:imageData) {
                 Image(uiImage: selectedImage)
                     .resizable()
-                    .scaledToFit()
-                    .frame(height: 300)
-                TextField("Escribe un título...", text: $vm.captionText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(width: 100, height: 100)
+                    .scaledToFill()
+                    .clipShape(RoundedRectangle(cornerRadius: 50))
+                    .overlay(Circle().stroke(Color.blue, lineWidth: 1))
                     .padding()
-                HStack{
+            }
+            Form {
+                PhotosPicker(
+                    selection: $vm.selectedItem,
+                    matching: .images,
+                    photoLibrary: .shared()) {
+                        Text(String(localized:"SelectManufacturerLogo"))
+                    }
+                    .onChange(of: vm.selectedItem) { newItem in
+                        Task {
+                            if let data = try? await newItem?.loadTransferable(type: Data.self){
+                                vm.selectedImageData = data
+                            }
+                        }
+                    }
+                
+                Section{
+                    Text(String(localized:"InsertBrandName"))
+                    TextField("", text: $vm.title)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                }
+                
+                Section{
+                    Text(String(localized:"InsertBrandType"))
+                    TextField("", text: $vm.type)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                }
+                HStack {
                     Button(action: {
-                        guard !vm.captionText.isEmpty else { return }
-                        vm.savePost(image: selectedImage)
-                        vm.selectedImage = nil
-                        vm.captionText = ""
-                        self.showView = false })
-                    { Text("Publicar") }
+                        vm.selectedImageData = nil
+                        vm.title = ""
+                        vm.type = ""
+                        self.presentationMode.wrappedValue.dismiss() })
+                    { Text(String(localized: "Dismiss")) }
                     Button(action: {
-                        vm.selectedImage = nil
-                        vm.captionText = ""
-                        self.showView = false })
-                    { Text("Descartar") }
+                        guard !vm.type.isEmpty else { return }
+                        guard !vm.title.isEmpty else { return }
+                        vm.saveBrand()
+                        vm.selectedImageData = nil
+                        vm.title = ""
+                        vm.type = ""
+                        self.presentationMode.wrappedValue.dismiss() })
+                    { Text(String(localized: "Publish")) }
                 }
             }
-        } else {
-            Button("Selecciona una imagen") {
-                vm.isImagePickerPresented = true
-            }
-            .sheet(isPresented: $vm.isImagePickerPresented) {
-                PhotoPicker(selectedImage: $vm.selectedImage)
-            }
         }
+        .navigationTitle(String(localized: "AddNewManufacturer"))
     }
 }
-struct PhotoPicker: UIViewControllerRepresentable {
-    @Binding var selectedImage: UIImage?
-    
-    func makeUIViewController(context: Context) -> some UIViewController {
-        var config = PHPickerConfiguration(photoLibrary: .shared())
-        config.filter = .images
-        config.selectionLimit = 1
-        let picker = PHPickerViewController(configuration: config)
-        picker.delegate = context.coordinator
-        return picker
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
 
-    class Coordinator: NSObject, PHPickerViewControllerDelegate {
-        let parent: PhotoPicker
-        
-        init(_ parent: PhotoPicker) {
-            self.parent = parent
-        }
-        
-        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            picker.dismiss(animated: true)
-            
-            guard let provider = results.first?.itemProvider else { return }
-            if provider.canLoadObject(ofClass: UIImage.self) {
-                provider.loadObject(ofClass: UIImage.self) { image, _ in
-                    self.parent.selectedImage = image as? UIImage
-                }
-            }
-        }
-    }
+#Preview {
+    AddView()
 }

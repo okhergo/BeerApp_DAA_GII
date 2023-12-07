@@ -9,31 +9,26 @@ import SwiftUI
 
 struct ListView: View {
     @State var descriptionNote: String = ""
-    @State var showView: Bool = false
     @ObservedObject var vm = ViewModel()
     
     var body: some View {
-        NavigationView{
+        NavigationStack {
             List {
-                if ($vm.posts.count > 0) {
-                    ForEach($vm.posts, id: \.id) { $post in
-                        VStack(alignment: .leading) {
-                            Image(uiImage: post.image.img!)
-                                .resizable()
-                                .scaledToFit()
-                            Text(post.caption)
-                        }
-                        .swipeActions(edge: .trailing) {
-                            Button {
-                                vm.favorite(post: $post)
-                            } label : {
-                                Label(String(localized: "Star"), systemImage: "star.fill")
+                if ($vm.brands.count > 0) {
+                    ForEach($vm.brands, id: \.id) { $brand in
+                        NavigationLink {
+                            ListDetailView(brand: $brand)
+                        } label: {
+                            VStack(alignment: .leading) {
+                                Image(uiImage: UIImage(data:brand.image)!)
+                                    .resizable()
+                                    .scaledToFit()
+                                Text(brand.title)
                             }
-                            .tint(.yellow)
                         }
                         .swipeActions(edge: .leading) {
                             Button {
-                                vm.remove(withId: post.id)
+                                vm.removeBrand(withId: brand.id)
                             } label : {
                                 Label(String(localized: "Trash"), systemImage: "trash.fill")
                             }
@@ -44,11 +39,13 @@ struct ListView: View {
                     Text(String(localized: "NoBeerAdded"))
                 }
             }
+            NavigationLink {
+                AddView()
+            } label: {
+                Text(String(localized: "AddNewManufacturer"))
+            }
+            .padding()
             .navigationBarTitle(String(localized:"BeerListTitle"))
-            .navigationBarItems(trailing: NavigationLink(
-                destination: AddView(showView: $showView),
-                isActive: $showView){
-                    Image(systemName: "plus")})
         }
     }
 }

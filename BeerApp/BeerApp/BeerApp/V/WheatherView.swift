@@ -15,8 +15,7 @@ struct WheatherView: View {
                 .padding(10)
                 .frame(height: 150)
             HStack {
-                Text("\(vm.hourlyForecasts.first?.temperature ?? 0, specifier: "%.1f")°C")
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                Text("\(vm.hourlyForecasts[0].temperature, specifier: "%.1f")°C")
                 VStack {
                     Text("\(vm.currentCity)")
                         .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
@@ -35,7 +34,8 @@ struct WheatherView: View {
     }
 }
 
-
-#Preview {
-    WheatherView()
+struct WeatherView_Previews: PreviewProvider {
+    static var previews: some View {
+        WheatherView()
+    }
 }

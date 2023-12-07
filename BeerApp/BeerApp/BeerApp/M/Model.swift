@@ -9,15 +9,16 @@ import Foundation
 
 struct Model: Codable, Identifiable {
     let id: String
+    var isFavorited: Bool
     let title: String
-    let image: Data
-    let type: String
-    var beers: [BeerModel] = []
+    let image: String
+    let caption: String
     
-    init(id: String = UUID().uuidString, title: String, image: Data, type: String) {
+    init(id: String = UUID().uuidString, isFavorited: Bool = false, title: String, image: String, caption: String) {
         self.id = id
+        self.isFavorited = isFavorited
         self.title = title
         self.image = image
-        self.type = type
+        self.caption = caption
     }
 }

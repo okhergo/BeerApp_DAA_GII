@@ -1,10 +1,10 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%.1f°C" : {
+    "%@" : {
 
     },
-    "%@" : {
+    "%lld" : {
 
     },
     "BeerList" : {
@@ -14,9 +14,6 @@
 
     },
     "Descartar" : {
-
-    },
-    "Error" : {
 
     },
     "Escribe un título..." : {
@@ -34,13 +31,10 @@
     "LoginTitle" : {
 
     },
-    "NoBeerAdded" : {
+    "NoBeer" : {
 
     },
     "NoBeers" : {
-
-    },
-    "OK" : {
 
     },
     "Password" : {
@@ -67,9 +61,6 @@
       }
     },
     "Selecciona una imagen" : {
-
-    },
-    "Select a photo" : {
 
     },
     "Star" : {

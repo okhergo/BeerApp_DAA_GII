@@ -24,7 +24,7 @@ struct HomeView: View {
                                         .scaledToFit()
                                         .frame(maxWidth: .infinity, maxHeight: 300)
                                 ScrollView {
-                                    Text(fav.title)
+                                    Text(fav.caption)
                                         .padding()
                                 }
                             }
@@ -32,7 +32,7 @@ struct HomeView: View {
                     }
                     List{
                         ForEach($vm.favorites, id: \.id) { $fav in
-                            Text(fav.title)
+                            Text(fav.caption)
                         }
                     }
                 } else {
