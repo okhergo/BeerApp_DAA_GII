@@ -15,6 +15,9 @@
 		CF89BD872B1F806900959180 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF89BD862B1F806900959180 /* ViewModel.swift */; };
 		CF89BD972B1F878500959180 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CF89BD962B1F878500959180 /* Localizable.xcstrings */; };
 		CF8ADAE02B20B7D900B1406C /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8ADADF2B20B7D900B1406C /* AddView.swift */; };
+		CF8ADAE22B220A9800B1406C /* WheatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8ADAE12B220A9800B1406C /* WheatherAPI.swift */; };
+		CF8ADAE42B220AC300B1406C /* WheatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8ADAE32B220AC300B1406C /* WheatherViewModel.swift */; };
+		CF8ADAE62B220C7900B1406C /* WheatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8ADAE52B220C7900B1406C /* WheatherView.swift */; };
 		CFBEF94B2B1F8DF800CBF116 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBEF94A2B1F8DF800CBF116 /* ListView.swift */; };
 		CFBEF94D2B1F8E6200CBF116 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBEF94C2B1F8E6200CBF116 /* HomeView.swift */; };
 		CFBEF94F2B1F8E7000CBF116 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBEF94E2B1F8E7000CBF116 /* LoginView.swift */; };
@@ -33,6 +36,9 @@
 		CF89BD862B1F806900959180 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		CF89BD962B1F878500959180 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		CF8ADADF2B20B7D900B1406C /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		CF8ADAE12B220A9800B1406C /* WheatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherAPI.swift; sourceTree = "<group>"; };
+		CF8ADAE32B220AC300B1406C /* WheatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherViewModel.swift; sourceTree = "<group>"; };
+		CF8ADAE52B220C7900B1406C /* WheatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherView.swift; sourceTree = "<group>"; };
 		CFBEF94A2B1F8DF800CBF116 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		CFBEF94C2B1F8E6200CBF116 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CFBEF94E2B1F8E7000CBF116 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 			children = (
 				CF89BD842B1F805900959180 /* Model.swift */,
 				CFBEF9542B1F8F6800CBF116 /* UserModel.swift */,
+				CF8ADAE12B220A9800B1406C /* WheatherAPI.swift */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -103,6 +110,7 @@
 			children = (
 				CF89BD862B1F806900959180 /* ViewModel.swift */,
 				CFBEF9522B1F8EAB00CBF116 /* UserViewModel.swift */,
+				CF8ADAE32B220AC300B1406C /* WheatherViewModel.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -113,6 +121,7 @@
 				CF89BD962B1F878500959180 /* Localizable.xcstrings */,
 				CF15A8DC2B1A39FC000C43B3 /* MainView.swift */,
 				CFBEF94A2B1F8DF800CBF116 /* ListView.swift */,
+				CF8ADAE52B220C7900B1406C /* WheatherView.swift */,
 				CF8ADADF2B20B7D900B1406C /* AddView.swift */,
 				CFBEF94C2B1F8E6200CBF116 /* HomeView.swift */,
 				CFBEF94E2B1F8E7000CBF116 /* LoginView.swift */,
@@ -196,13 +205,16 @@
 				CF89BD852B1F805900959180 /* Model.swift in Sources */,
 				CFBEF94F2B1F8E7000CBF116 /* LoginView.swift in Sources */,
 				CF15A8DD2B1A39FC000C43B3 /* MainView.swift in Sources */,
+				CF8ADAE42B220AC300B1406C /* WheatherViewModel.swift in Sources */,
 				CFBEF9512B1F8E8300CBF116 /* UserView.swift in Sources */,
 				CF89BD872B1F806900959180 /* ViewModel.swift in Sources */,
 				CFBEF94B2B1F8DF800CBF116 /* ListView.swift in Sources */,
 				CF8ADAE02B20B7D900B1406C /* AddView.swift in Sources */,
+				CF8ADAE62B220C7900B1406C /* WheatherView.swift in Sources */,
 				CFBEF94D2B1F8E6200CBF116 /* HomeView.swift in Sources */,
 				CFBEF9532B1F8EAB00CBF116 /* UserViewModel.swift in Sources */,
 				CFBEF9552B1F8F6800CBF116 /* UserModel.swift in Sources */,
+				CF8ADAE22B220A9800B1406C /* WheatherAPI.swift in Sources */,
 				CF15A8DB2B1A39FC000C43B3 /* BeerAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +352,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BeerApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Necesitamos acceso a tu camara para poder añadir imágenes";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Necesitamos acceso a tu ubicación para proporcionar la previsión del tiempo para tu área";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Necesitamos acceso a tu libreria de fotos para poder añadir imágenes";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Necesitamos acceso a tu libreria de fotos para poder añadir imágenes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -370,6 +386,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BeerApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Necesitamos acceso a tu camara para poder añadir imágenes";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Necesitamos acceso a tu ubicación para proporcionar la previsión del tiempo para tu área";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Necesitamos acceso a tu libreria de fotos para poder añadir imágenes";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Necesitamos acceso a tu libreria de fotos para poder añadir imágenes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

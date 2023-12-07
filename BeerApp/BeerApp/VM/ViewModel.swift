@@ -14,6 +14,15 @@ extension UIImage {
     }
 }
 
+extension String {
+    var img: UIImage? {
+        guard let imageData = Data(base64Encoded: self, options: .ignoreUnknownCharacters) else {
+            return nil
+        }
+        return UIImage(data: imageData)
+    }
+}
+
 final class ViewModel: ObservableObject {
     @Published var posts: [Model] = []
     @Published var favorites: [Model] = []

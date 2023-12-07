@@ -1,6 +1,48 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@" : {
+
+    },
+    "%lld" : {
+
+    },
+    "BeerList" : {
+
+    },
+    "BeerListTitle" : {
+
+    },
+    "Descartar" : {
+
+    },
+    "Escribe un título..." : {
+
+    },
+    "Home" : {
+
+    },
+    "HomeTitle" : {
+
+    },
+    "LoginButton" : {
+
+    },
+    "LoginTitle" : {
+
+    },
+    "NoBeer" : {
+
+    },
+    "NoBeers" : {
+
+    },
+    "Password" : {
+
+    },
+    "Publicar" : {
+
+    },
     "Sample" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -17,6 +59,27 @@
           }
         }
       }
+    },
+    "Selecciona una imagen" : {
+
+    },
+    "Star" : {
+
+    },
+    "Trash" : {
+
+    },
+    "User" : {
+
+    },
+    "Username" : {
+
+    },
+    "UserTitle" : {
+
+    },
+    "WheaterSubtitle" : {
+
     }
   },
   "version" : "1.0"

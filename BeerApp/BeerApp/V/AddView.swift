@@ -38,10 +38,12 @@ struct AddView: View {
                 }
             }
         } else {
-            Button(action: {
-                vm.selectedImage = nil
-                vm.captionText = "" })
-            { Text("Añadir") }
+            Button("Selecciona una imagen") {
+                vm.isImagePickerPresented = true
+            }
+            .sheet(isPresented: $vm.isImagePickerPresented) {
+                PhotoPicker(selectedImage: $vm.selectedImage)
+            }
         }
     }
 }

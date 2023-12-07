@@ -14,7 +14,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView{
             VStack{
-                Wheather()
+                WheatherView()
                 if ($vm.favorites.count > 0) {
                     NavigationStack{
                         ForEach($vm.favorites, id: \.id) { $fav in
