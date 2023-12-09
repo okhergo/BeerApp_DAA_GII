@@ -13,19 +13,27 @@ struct WheatherView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .padding(10)
+                .foregroundColor(.blue)
                 .frame(height: 150)
             VStack {
                 HStack {
                     Text("\(vm.hourlyForecasts.first?.temperature ?? 0, specifier: "%.1f")°C")
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.black)
                         .font(.system(size: 40))
                         .padding()
+                        .bold()
                     Text("\(vm.currentCity)")
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.black)
                 }
-                Text(String(localized: "WheaterSubtitle"))
-                    .foregroundColor(.white)
-                    .font(.subheadline)
+                if (vm.hourlyForecasts.first?.temperature ?? 0 > 13){
+                    Text(String(localized: "WheaterSubtitle"))
+                        .foregroundColor(.white)
+                        .font(.subheadline)
+                } else {
+                    Text(String(localized: "WheaterSubtitleNo"))
+                        .foregroundColor(.white)
+                        .font(.subheadline)
+                }
             }
         }
         .onAppear {

@@ -37,7 +37,7 @@ struct ContentView: View {
                             Image(systemName: "person.circle")
                             Text(String(localized: "User"))}
                 } else {
-                    UserView().tag(Tab.user)
+                    UserView(userVM: userVM).tag(Tab.user)
                         .tabItem {
                             Image(systemName: "person.circle")
                             Text(String(localized: "User"))}

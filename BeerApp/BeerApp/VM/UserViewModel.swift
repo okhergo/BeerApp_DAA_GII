@@ -12,8 +12,7 @@ final class UserViewModel: ObservableObject {
     @Published var isBusy = false
     @Published var users: [UserModel] = []
     
-    var correctUsername = "Admin"
-    var correctPassword = "Password"
+    @Published var userLogged: UserModel?
     
     init() {
         users = getAllUsers()
@@ -23,6 +22,7 @@ final class UserViewModel: ObservableObject {
         let newUser = UserModel(username: username, password: password)
         users.insert(newUser, at: 0)
         encodeAndSaveAllUsers()
+        if !signIn(username: username, password: password) { return }
     }
     
     private func encodeAndSaveAllUsers() {
@@ -42,13 +42,17 @@ final class UserViewModel: ObservableObject {
     }
     
     func signIn(username: String, password: String) -> Bool {
-        if username == correctUsername && password == correctPassword{
-            isLoggedIn = true
-            isBusy = false
-            return true
+        var flag: Bool = false
+        for user in users {
+            if username == user.username && password == user.password {
+                isLoggedIn = true
+                isBusy = false
+                flag = true
+                userLogged = user
+            }
         }
         isBusy = false
-        return false
+        return flag
     }
     
 }

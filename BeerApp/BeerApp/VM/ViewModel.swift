@@ -19,6 +19,16 @@ enum BeerType: String, CaseIterable, Identifiable {
     var id: String { self.rawValue }
 }
 
+extension String {
+    func toDouble() -> Double? {
+        return NumberFormatter().number(from: self)?.doubleValue
+    }
+}
+
+enum SortField: String, CaseIterable {
+    case name, grades, calories
+}
+
 final class ViewModel: ObservableObject {
     @Published var brands: [Model] = []
     @Published var favorites: [BeerModel] = []
@@ -26,7 +36,13 @@ final class ViewModel: ObservableObject {
     @Published var selectedItem: PhotosPickerItem? = nil
     @Published var selectedImageData: Data? = nil
     @Published var type: BrandType = .nacionales
+    @Published var typeBeer: BeerType = .lager
     @Published var title: String = ""
+    @Published var grades: String = ""
+    @Published var cal: String = ""
+    
+    @Published var selectedSortField: SortField = .name
+    @Published var ascending: Bool = false
     
     init() {
         brands = getAll()
@@ -35,13 +51,17 @@ final class ViewModel: ObservableObject {
     func saveBrand() {
         let newBrand = Model(title: title, image: selectedImageData!, type: type.rawValue)
         brands.insert(newBrand, at: 0)
+        encodeAll()
     }
     
     func saveBeer(withId id: String) {
-        let newBeer = BeerModel(title: title, image: selectedImageData!, type: type.rawValue)
+        guard let gradesDouble = grades.toDouble() else {return}
+        guard let calDouble = cal.toDouble() else {return}
+        let newBeer = BeerModel(title: title, image: selectedImageData!, type: typeBeer.rawValue, grades: gradesDouble, cal: calDouble)
         if let i = brands.firstIndex(where: { $0.id == id }) {
             brands[i].beers.insert(newBeer, at: 0)
         }
+        encodeAll()
     }
     
     private func encodeAll() {
@@ -72,7 +92,22 @@ final class ViewModel: ObservableObject {
         encodeAll()
     }
     
+    func sort(withId id: String) {
+        if let i = brands.firstIndex(where: { $0.id == id }) {
+            switch selectedSortField {
+            case .name: brands[i].beers.sort { ascending ? $0.title < $1.title : $0.title > $1.title }
+            case .grades: brands[i].beers.sort { ascending ? $0.grades < $1.grades : $0.grades > $1.grades }
+            case .calories: brands[i].beers.sort { ascending ? $0.cal < $1.cal : $0.cal > $1.cal }
+            }
+        }
+    }
+    
     func favoriteBeer(beer: Binding<BeerModel>) {
+        if beer.wrappedValue.isFavorited {
+            favorites.insert(beer.wrappedValue, at: 0)
+        } else {
+            favorites.removeAll(where: { $0.id == beer.wrappedValue.id })
+        }
         beer.wrappedValue.isFavorited = !beer.wrappedValue.isFavorited
         encodeAll()
     }
