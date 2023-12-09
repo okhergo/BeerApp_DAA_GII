@@ -44,6 +44,8 @@ final class ViewModel: ObservableObject {
     @Published var selectedSortField: SortField = .name
     @Published var ascending: Bool = false
     
+    private let manager = CoreDataManager()
+    
     init() {
         brands = getAll()
     }
