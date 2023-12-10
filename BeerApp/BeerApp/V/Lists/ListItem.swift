@@ -18,9 +18,9 @@ struct Item: View {
             HStack {
                 Image(uiImage: UIImage(data:brand.image)!)
                     .resizable()
-                    .frame(width: 40, height: 40)
+                    .frame(width: 50, height: 50)
                     .scaledToFill()
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .clipShape(RoundedRectangle(cornerRadius: 25))
                     .overlay(Circle().stroke(Color.blue, lineWidth: 1))
                     .padding()
                 Text(brand.title)

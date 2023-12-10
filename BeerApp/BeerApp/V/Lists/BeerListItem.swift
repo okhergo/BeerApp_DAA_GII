@@ -20,15 +20,15 @@ struct BeerItem: View {
             HStack {
                 Image(uiImage: UIImage(data:beer.image)!)
                     .resizable()
-                    .frame(width: 40, height: 40)
+                    .frame(width: 50, height: 50)
                     .scaledToFill()
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .clipShape(RoundedRectangle(cornerRadius: 25))
                     .overlay(Circle().stroke(Color.blue, lineWidth: 1))
                     .padding()
-                VStack {
+                VStack (alignment: .leading){
                     Text(beer.title)
-                        .font(.title).bold()
-                    Text("\(beer.grades) ºC | \(beer.cal) kcal")
+                        .font(.title2).bold()
+                    Text(String(format: "%.1f", beer.grades) + "% ºC | "  + String(format: "%.0f", beer.cal) + " kcal")
                         .font(.subheadline)
                 }
             }

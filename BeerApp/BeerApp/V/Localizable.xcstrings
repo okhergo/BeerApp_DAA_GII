@@ -10,16 +10,6 @@
     "%lf" : {
 
     },
-    "%lf ºC | %lf kcal" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lf ºC | %2$lf kcal"
-          }
-        }
-      }
-    },
     "AddNewBeer" : {
       "localizations" : {
         "es" : {

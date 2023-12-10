@@ -11,6 +11,7 @@ import PhotosUI
 struct AddManufacturerView: View {
     @EnvironmentObject var vm: ViewModel
     @Binding var dismissSheet: Bool
+    @FocusState private var focusedField: Field?
     
     var body: some View {
         NavigationStack{

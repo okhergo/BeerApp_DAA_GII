@@ -53,6 +53,7 @@ final class ViewModel: ObservableObject {
          { brands = FileLoader.loadJson(data) }
          brands = getAll()
         */
+        favorites = getAllFavs()
         
         // LOAD FROM CORE DATA
         fetchAll()
@@ -62,14 +63,18 @@ final class ViewModel: ObservableObject {
     func fetchAll() {
         brands.removeAll()
         let brandsE = manager.fetchBrands()
+        var i = 0
         for brandE in brandsE {
-            var newBrand = Brand(title: brandE.title!, image: brandE.image!, type: brandE.type!)
+            var newBrand = Brand(id: brandE.id!, title: brandE.title!, image: brandE.image!, type: brandE.type!)
             let beersE = manager.fetchBeers(brandE)
+            var j = 0
             for beerE in beersE {
-                let newBeer = Beer(title: beerE.title!, image: beerE.image!, type: beerE.type!, grades: beerE.grades, cal: beerE.cal)
-                newBrand.beers.insert(newBeer, at: 0)
+                let newBeer = Beer(id: beerE.id!, title: beerE.title!, image: beerE.image!, type: beerE.type!, grades: beerE.grades, cal: beerE.cal)
+                newBrand.beers.insert(newBeer, at: j)
+                j+=1
             }
-            brands.insert(newBrand, at: 0)
+            brands.insert(newBrand, at: i)
+            i+=1
         }
     }
     
@@ -96,12 +101,20 @@ final class ViewModel: ObservableObject {
     }
     
     func removeBrand(withId id: String) {
-        brands.removeAll(where: { $0.id == id })
+        //brands.removeAll(where: { $0.id == id })
+        
+        guard let i = brands.firstIndex(where: { $0.id == id }) else {return}
+        manager.deleteBrand(at: i) { [weak self] in self?.fetchAll() }
     }
     
     func removeBeer(withId id: String, withBrandId bid: String) {
         if let i = brands.firstIndex(where: { $0.id == bid }) {
-            brands[i].beers.removeAll(where: { $0.id == id })
+            //brands[i].beers.removeAll(where: { $0.id == id })
+            
+            guard let j = brands[i].beers.firstIndex(where: { $0.id == id }) else {return}
+            favorites.removeAll(where: { $0.id == id })
+            encodeFav()
+            manager.deleteBeer(at: j, brandIndex: i) { [weak self] in self?.fetchAll() }
         }
     }
     
@@ -116,15 +129,32 @@ final class ViewModel: ObservableObject {
     }
     
     func favoriteBeer(beer: Binding<Beer>) {
-        if beer.wrappedValue.isFavorited {
+        if favorites.firstIndex(where: { $0.id == beer.id }) == nil {
             favorites.insert(beer.wrappedValue, at: 0)
         } else {
-            favorites.removeAll(where: { $0.id == beer.wrappedValue.id })
+            favorites.removeAll(where: { $0.id == beer.id })
         }
-        beer.wrappedValue.isFavorited = !beer.wrappedValue.isFavorited
+        encodeFav()
     }
     
-    //JSON ENCODING IN USER DEFAULTS
+    private func encodeFav() {
+        if let encoded = try? JSONEncoder().encode(favorites) {
+            UserDefaults.standard.setValue(encoded, forKey: "favorites")
+            UserDefaults.standard.synchronize()
+            //FileLoader.saveDataToDocuments(encoded)
+        }
+    }
+    
+    func getAllFavs() -> [Beer] {
+        if let favsData = UserDefaults.standard.object(forKey: "favorites") as? Data {
+            if let favs = try? JSONDecoder().decode([Beer].self, from: favsData) {
+                return favs
+            }
+        }
+        return []
+    }
+    
+    //JSON ENCODING BRANDS IN USER DEFAULTS
     private func encodeAll() {
         if let encoded = try? JSONEncoder().encode(brands) {
             UserDefaults.standard.setValue(encoded, forKey: "brands")

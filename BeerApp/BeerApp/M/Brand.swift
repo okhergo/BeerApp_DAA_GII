@@ -14,7 +14,7 @@ struct Brand: Codable, Identifiable {
     let type: String
     var beers: [Beer] = []
     
-    init(id: String = UUID().uuidString, title: String, image: Data, type: String) {
+    init(id: String, title: String, image: Data, type: String) {
         self.id = id
         self.title = title
         self.image = image

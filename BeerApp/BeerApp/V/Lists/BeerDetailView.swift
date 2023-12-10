@@ -11,6 +11,7 @@ struct BeerDetailView: View {
     @Binding var beer: Beer
     @Binding var brand: Brand
     @State private var isEditPresented = false
+    @EnvironmentObject var vm: ViewModel
     
     var body: some View{
         NavigationView{
@@ -23,13 +24,14 @@ struct BeerDetailView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 100))
                         .overlay(Circle().stroke(Color.blue, lineWidth: 1))
                         .padding()
-                    if beer.isFavorited {
+                    
+                    if ($vm.favorites.first(where: { $0.id == beer.id }) != nil) {
                         Image(systemName: "star.fill")
                     }
                 }
                 Text(beer.type)
-                Text(String(localized:"Gradation") + ": \(beer.grades)")
-                Text(String(localized: "Calories") + ": \(beer.cal)")
+                Text(String(localized:"Gradation") + ": " + String(format: "%.1f", beer.grades))
+                Text(String(localized: "Calories") + ": " + String(format: "%.0f", beer.cal))
                 Spacer()
                 Button(action: {
                     isEditPresented.toggle()

@@ -10,39 +10,31 @@ import Foundation
 final class UserViewModel: ObservableObject {
     @Published var isLoggedIn = false
     @Published var isBusy = false
-    @Published var users: [User] = []
+    @Published var users: [UserE] = []
     
-    @Published var userLogged: User?
+    @Published var userLogged: UserE?
+    
+    private let manager = CoreDataManager()
     
     init() {
-        users = getAllUsers()
+        fetchUsers()
+    }
+    
+    
+    func fetchUsers() {
+        users = manager.fetchUsers()
     }
     
     func addUser(username: String, password: String) {
-        let newUser = User(username: username, password: password)
-        users.insert(newUser, at: 0)
-        encodeAndSaveAllUsers()
+        isBusy = true
+        manager.createUser(username: username, password: password) { [weak self] in self?.fetchUsers() }
+        
         if !signIn(username: username, password: password) { return }
-    }
-    
-    private func encodeAndSaveAllUsers() {
-        if let encoded = try? JSONEncoder().encode(users) {
-            UserDefaults.standard.setValue(encoded, forKey: "users")
-            UserDefaults.standard.synchronize()
-        }
-    }
-    
-    func getAllUsers() -> [User] {
-        if let usersData = UserDefaults.standard.object(forKey: "users") as? Data {
-            if let users = try? JSONDecoder().decode([User].self, from: usersData) {
-                return users
-            }
-        }
-        return []
     }
     
     func signIn(username: String, password: String) -> Bool {
         var flag: Bool = false
+        isBusy = true
         for user in users {
             if username == user.username && password == user.password {
                 isLoggedIn = true

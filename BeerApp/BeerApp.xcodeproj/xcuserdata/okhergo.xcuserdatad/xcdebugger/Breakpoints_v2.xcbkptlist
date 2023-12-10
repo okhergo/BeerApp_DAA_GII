@@ -14,8 +14,8 @@
             filePath = "BeerApp/V/Users/UserView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "BeerApp/VM/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "fetchAll()"
             landmarkType = "7">
             <Locations>
@@ -94,8 +94,8 @@
             filePath = "BeerApp/VM/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "fetchAll()"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "BeerApp/VM/CoreDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "fetchBeers(_:)"
             landmarkType = "7">
             <Locations>
@@ -146,6 +146,260 @@
                   offsetFromSymbolStart = "556">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "65047C86-76F0-47F7-B18F-74E69A765B3A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeerApp/VM/ViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "removeBeer(withId:withBrandId:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "65047C86-76F0-47F7-B18F-74E69A765B3A - ae8b148fd369496d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeerApp.ViewModel.removeBeer(withId: Swift.String, withBrandId: Swift.String) -&gt; ()"
+                  moduleName = "BeerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okhergo/Desktop/DAA/BeerApp/BeerApp/VM/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "504">
+               </Location>
+               <Location
+                  uuid = "65047C86-76F0-47F7-B18F-74E69A765B3A - 821dac31432baeee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; () in BeerApp.ViewModel.removeBeer(withId: Swift.String, withBrandId: Swift.String) -&gt; ()"
+                  moduleName = "BeerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okhergo/Desktop/DAA/BeerApp/BeerApp/VM/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "65047C86-76F0-47F7-B18F-74E69A765B3A - ae8b148fd369496d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeerApp.ViewModel.removeBeer(withId: Swift.String, withBrandId: Swift.String) -&gt; ()"
+                  moduleName = "BeerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okhergo/Desktop/DAA/BeerApp/BeerApp/VM/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "828">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AE006724-DABD-490C-A63D-0F0CD9D722C9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeerApp/VM/CoreDataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "deleteBeer(at:brandIndex:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AE006724-DABD-490C-A63D-0F0CD9D722C9 - 1fefe80c87343025"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeerApp.CoreDataManager.deleteBeer(at: Swift.Int, brandIndex: Swift.Int, completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "BeerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okhergo/Desktop/DAA/BeerApp/BeerApp/VM/CoreDataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "428">
+               </Location>
+               <Location
+                  uuid = "AE006724-DABD-490C-A63D-0F0CD9D722C9 - 1fefe80c87343025"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeerApp.CoreDataManager.deleteBeer(at: Swift.Int, brandIndex: Swift.Int, completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "BeerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okhergo/Desktop/DAA/BeerApp/BeerApp/VM/CoreDataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "436">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "77F69A48-7912-450E-B5D5-0DF96D98FCBB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeerApp/VM/ViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "removeBeer(withId:withBrandId:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "77F69A48-7912-450E-B5D5-0DF96D98FCBB - ae8b148fd36949e1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeerApp.ViewModel.removeBeer(withId: Swift.String, withBrandId: Swift.String) -&gt; ()"
+                  moduleName = "BeerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okhergo/Desktop/DAA/BeerApp/BeerApp/VM/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "77F69A48-7912-450E-B5D5-0DF96D98FCBB - 5c37859338d64992"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (BeerApp.Brand) -&gt; Swift.Bool in BeerApp.ViewModel.removeBeer(withId: Swift.String, withBrandId: Swift.String) -&gt; ()"
+                  moduleName = "BeerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okhergo/Desktop/DAA/BeerApp/BeerApp/VM/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB72AAA8-B2F4-4D6C-953D-3B7E7E194BDA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeerApp/VM/ViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "removeBeer(withId:withBrandId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4BBC9903-4CD6-4D92-B583-4F7575BD7139"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeerApp/VM/ViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "favoriteBeer(beer:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4BBC9903-4CD6-4D92-B583-4F7575BD7139 - 9f762b181ec0b8e4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeerApp.ViewModel.favoriteBeer(beer: SwiftUI.Binding&lt;BeerApp.Beer&gt;) -&gt; ()"
+                  moduleName = "BeerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okhergo/Desktop/DAA/BeerApp/BeerApp/VM/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  uuid = "4BBC9903-4CD6-4D92-B583-4F7575BD7139 - 2adeb57fcd213eb9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (BeerApp.Beer) -&gt; Swift.Bool in BeerApp.ViewModel.favoriteBeer(beer: SwiftUI.Binding&lt;BeerApp.Beer&gt;) -&gt; ()"
+                  moduleName = "BeerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okhergo/Desktop/DAA/BeerApp/BeerApp/VM/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "4BBC9903-4CD6-4D92-B583-4F7575BD7139 - 9f762b181ec0b8e4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BeerApp.ViewModel.favoriteBeer(beer: SwiftUI.Binding&lt;BeerApp.Beer&gt;) -&gt; ()"
+                  moduleName = "BeerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okhergo/Desktop/DAA/BeerApp/BeerApp/VM/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "184">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A30F0BB-3E9F-4CA7-9230-BB1AEDEFE1ED"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeerApp/V/Users/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

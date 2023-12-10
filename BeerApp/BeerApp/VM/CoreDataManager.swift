@@ -81,6 +81,35 @@ class CoreDataManager {
         }
     }
     
+    func deleteBrand(at index: Int, completion: @escaping() -> Void) {
+        let context = container.viewContext
+        
+        let brands = fetchBrands()
+        context.delete(brands[index])
+        
+        do {
+        try context.save()
+            completion()
+        } catch {
+            print("Error deleting brand — \(error)")
+        }
+    }
+    
+    func deleteBeer(at index: Int, brandIndex: Int, completion: @escaping() -> Void) {
+        let context = container.viewContext
+        guard let brand = retrieveBrand(brandIndex) else { return }
+        
+        let beers = fetchBeers(brand)
+        context.delete(beers[index])
+        
+        do {
+        try context.save()
+            completion()
+        } catch {
+            print("Error deleting brand — \(error)")
+        }
+    }
+    
     func retrieveBrand(_ index: Int) -> BrandE? {
         let context = container.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BrandE")

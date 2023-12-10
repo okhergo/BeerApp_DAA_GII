@@ -55,8 +55,11 @@ struct LoginView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack{
+        if(userVM.isBusy){
+            ProgressView().progressViewStyle(.circular)
+        } else {
+            NavigationView {
+                VStack{
                     TextField("Username", text: $username)
                         .focused($focusedField, equals: .usernameField)
                         .textFieldStyle(.roundedBorder)
@@ -65,13 +68,14 @@ struct LoginView: View {
                         .focused($focusedField, equals: .passwordField)
                         .textFieldStyle(.roundedBorder)
                         .padding(.horizontal, 20)
-                HStack{
-                    LoginButton()
-                    SignInButton()
+                    HStack{
+                        LoginButton()
+                        SignInButton()
+                    }
+                    Text(error)
                 }
-                Text(error)
+                .navigationTitle(String(localized: "LoginTitle"))
             }
-            .navigationTitle(String(localized: "LoginTitle"))
         }
     }
 }
