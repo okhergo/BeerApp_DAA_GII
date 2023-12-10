@@ -16,8 +16,7 @@ struct ListView: View {
             VStack{
                 List {
                     ForEach(BrandType.allCases, id: \.id) { value in
-                        Section(){
-                            Text(value.rawValue.capitalized)
+                        Section(value.rawValue.capitalized){
                             ForEach($vm.brands, id: \.id) { $brand in
                                 if(brand.type == value.rawValue){ Item(brand:$brand)
                                 }
@@ -34,7 +33,7 @@ struct ListView: View {
                 })
                 .padding()
             }
-            .navigationTitle(String(localized:"BrandListTitle"))
+            .navigationBarTitle(String(localized:"BrandListTitle"))
         }
     }
 }

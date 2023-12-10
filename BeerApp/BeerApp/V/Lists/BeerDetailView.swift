@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct BeerDetailView: View {
-    @Binding var beer: BeerModel
-    @Binding var brand: Model
+    @Binding var beer: Beer
+    @Binding var brand: Brand
     @State private var isEditPresented = false
     
     var body: some View{

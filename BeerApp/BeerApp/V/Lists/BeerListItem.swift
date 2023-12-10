@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct BeerItem: View {
-    @Binding var beer: BeerModel
-    @Binding var brand: Model
+    @Binding var beer: Beer
+    @Binding var brand: Brand
     @EnvironmentObject var vm: ViewModel
     @State var isPresented: Bool = false
     
@@ -25,8 +25,12 @@ struct BeerItem: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .overlay(Circle().stroke(Color.blue, lineWidth: 1))
                     .padding()
-                Text(beer.title)
-                    .font(.title)
+                VStack {
+                    Text(beer.title)
+                        .font(.title).bold()
+                    Text("\(beer.grades) ºC | \(beer.cal) kcal")
+                        .font(.subheadline)
+                }
             }
             .swipeActions(edge: .trailing) {
                 Button {

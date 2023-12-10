@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Item: View {
-    @Binding var brand: Model
+    @Binding var brand: Brand
     @EnvironmentObject var vm: ViewModel
     
     var body: some View{

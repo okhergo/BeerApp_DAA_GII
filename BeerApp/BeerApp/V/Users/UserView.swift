@@ -12,9 +12,9 @@ struct UserView: View {
     var body: some View {
         NavigationView {
             VStack{
-                Text(String(localized: "Welcome") + "\(userVM.userLogged!.username)")
+                Text(String(localized: "Developer"))
             }
-            .navigationTitle(String(localized: "UserTitle"))
+            .navigationTitle(String(localized: "Welcome") + "\(userVM.userLogged!.username)")
         }
     }
 }

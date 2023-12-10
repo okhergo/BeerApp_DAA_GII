@@ -11,7 +11,7 @@ import PhotosUI
 struct AddBeerView: View {
     @EnvironmentObject var vm: ViewModel
     @Binding var dismissSheet: Bool
-    @Binding var brand: Model
+    @Binding var brand: Brand
     
     var body: some View {
         NavigationStack{
@@ -40,54 +40,42 @@ struct AddBeerView: View {
                             }
                         }
                 }
-                Section{
-                    Text(String(localized:"InsertBeerName"))
-                    TextField("", text: $vm.title)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                }
-                Section{
-                    Picker(String(localized:"SelectBeerType"), selection: $vm.typeBeer) {
-                        ForEach(BeerType.allCases, id: \.id) { value in
-                            Text(value.rawValue.capitalized)
-                                .tag(value)
-                        }
+                TextField(String(localized:"InsertBeerName"), text: $vm.title)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                Picker(String(localized:"SelectBeerType"), selection: $vm.typeBeer) {
+                    ForEach(BeerType.allCases, id: \.id) { value in
+                        Text(value.rawValue.capitalized)
+                            .tag(value)
                     }
                 }
-                Section{
-                    Text(String(localized:"InsertGrades"))
-                    TextField("", text: $vm.grades)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                    Text(String(localized:"InsertCalories"))
-                    TextField("", text: $vm.cal)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                }
-                HStack {
-                    Button(action: {
-                        vm.selectedImageData = nil
-                        vm.title = ""
-                        dismissSheet = false })
-                    { Text(String(localized: "Dismiss")) }
-                        .foregroundColor(.red)
-                        .buttonStyle(.bordered)
-                    Button(action: {
-                        guard (vm.selectedImageData != nil) else { return }
-                        guard !vm.title.isEmpty else { return }
-                        guard !vm.grades.isEmpty else { return }
-                        guard !vm.cal.isEmpty else { return }
-                        vm.saveBeer(withId: brand.id)
-                        vm.selectedImageData = nil
-                        vm.title = ""
-                        vm.grades = ""
-                        vm.cal = ""
-                        dismissSheet = false })
-                    { Text(String(localized: "Save")) }
-                        .buttonStyle(.borderedProminent)
-                } .padding()
+                TextField(String(localized:"InsertGrades"), text: $vm.grades)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                TextField(String(localized:"InsertCalories"), text: $vm.cal)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
             }
+            HStack {
+                Button(action: {
+                    vm.selectedImageData = nil
+                    vm.title = ""
+                    dismissSheet = false })
+                { Text(String(localized: "Dismiss")) }
+                    .foregroundColor(.red)
+                Button(action: {
+                    guard (vm.selectedImageData != nil) else { return }
+                    guard !vm.title.isEmpty else { return }
+                    guard !vm.grades.isEmpty else { return }
+                    guard !vm.cal.isEmpty else { return }
+                    vm.saveBeer(withId: brand.id)
+                    vm.selectedImageData = nil
+                    vm.title = ""
+                    vm.grades = ""
+                    vm.cal = ""
+                    dismissSheet = false })
+                { Text(String(localized: "Save")) }
+            } .padding()
         }
-        .navigationTitle(String(localized: "AddNewBeer"))
     }
 }

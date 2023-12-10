@@ -39,41 +39,32 @@ struct AddManufacturerView: View {
                             }
                         }
                 }
-                Section{
-                    Text(String(localized:"InsertBrandName"))
-                    TextField("", text: $vm.title)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                }
-                
-                Section{
-                    Picker(String(localized:"SelectBrandType"), selection: $vm.type) {
-                        ForEach(BrandType.allCases, id: \.id) { value in
-                            Text(value.rawValue.capitalized)
-                                .tag(value)
-                        }
+                TextField(String(localized:"InsertBrandName"), text: $vm.title)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                Picker(String(localized:"SelectBrandType"), selection: $vm.type) {
+                    ForEach(BrandType.allCases, id: \.id) { value in
+                        Text(value.rawValue.capitalized)
+                            .tag(value)
                     }
                 }
-                HStack {
-                    Button(action: {
-                        vm.selectedImageData = nil
-                        vm.title = ""
-                        dismissSheet = false })
-                    { Text(String(localized: "Dismiss")) }
-                        .foregroundColor(.red)
-                        .buttonStyle(.bordered)
-                    Button(action: {
-                        guard (vm.selectedImageData != nil) else { return }
-                        guard !vm.title.isEmpty else { return }
-                        vm.saveBrand()
-                        vm.selectedImageData = nil
-                        vm.title = ""
-                        dismissSheet = false })
-                    { Text(String(localized: "Save")) }
-                        .buttonStyle(.borderedProminent)
-                } .padding()
             }
+            HStack {
+                Button(action: {
+                    vm.selectedImageData = nil
+                    vm.title = ""
+                    dismissSheet = false })
+                { Text(String(localized: "Dismiss")) }
+                    .foregroundColor(.red)
+                Button(action: {
+                    guard (vm.selectedImageData != nil) else { return }
+                    guard !vm.title.isEmpty else { return }
+                    vm.saveBrand()
+                    vm.selectedImageData = nil
+                    vm.title = ""
+                    dismissSheet = false })
+                { Text(String(localized: "Save")) }
+            } .padding()
         }
-        .navigationTitle(String(localized: "AddNewManufacturer"))
     }
 }

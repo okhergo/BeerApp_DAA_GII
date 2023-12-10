@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     "%.1f°C" : {
 
     },
@@ -12,6 +9,16 @@
     },
     "%lf" : {
 
+    },
+    "%lf ºC | %lf kcal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lf ºC | %2$lf kcal"
+          }
+        }
+      }
     },
     "AddNewBeer" : {
       "localizations" : {
@@ -34,6 +41,7 @@
       }
     },
     "AddNewManufacturer" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -64,6 +72,9 @@
       }
     },
     "Calories" : {
+
+    },
+    "Developer" : {
 
     },
     "DiscardChanges" : {
@@ -97,6 +108,7 @@
       }
     },
     "EditBeer" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -347,6 +359,7 @@
       }
     },
     "UserTitle" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {

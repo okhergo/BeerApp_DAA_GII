@@ -10,16 +10,16 @@ import Foundation
 final class UserViewModel: ObservableObject {
     @Published var isLoggedIn = false
     @Published var isBusy = false
-    @Published var users: [UserModel] = []
+    @Published var users: [User] = []
     
-    @Published var userLogged: UserModel?
+    @Published var userLogged: User?
     
     init() {
         users = getAllUsers()
     }
     
     func addUser(username: String, password: String) {
-        let newUser = UserModel(username: username, password: password)
+        let newUser = User(username: username, password: password)
         users.insert(newUser, at: 0)
         encodeAndSaveAllUsers()
         if !signIn(username: username, password: password) { return }
@@ -32,9 +32,9 @@ final class UserViewModel: ObservableObject {
         }
     }
     
-    func getAllUsers() -> [UserModel] {
+    func getAllUsers() -> [User] {
         if let usersData = UserDefaults.standard.object(forKey: "users") as? Data {
-            if let users = try? JSONDecoder().decode([UserModel].self, from: usersData) {
+            if let users = try? JSONDecoder().decode([User].self, from: usersData) {
                 return users
             }
         }

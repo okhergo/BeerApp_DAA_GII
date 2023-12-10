@@ -9,12 +9,12 @@ import SwiftUI
 
 struct BeerListView: View {
     @EnvironmentObject var vm: ViewModel
-    @Binding var brand: Model
+    @Binding var brand: Brand
     @State var isPresented = false
     @State var isEditPresented = false
     @State private var searchText = ""
     
-    var filteredBeers: [BeerModel] {
+    var filteredBeers: [Beer] {
         if searchText.isEmpty {
             return brand.beers
         } else {
@@ -27,11 +27,10 @@ struct BeerListView: View {
             VStack{
                 List {
                     ForEach(BeerType.allCases, id: \.id) { value in
-                        Section(){
-                            Text(value.rawValue.capitalized)
+                        Section(value.rawValue.capitalized){
                             ForEach(filteredBeers, id: \.id) { beer in
                                 if(beer.type == value.rawValue){
-                                    BeerItem(beer: Binding<BeerModel> (
+                                    BeerItem(beer: Binding<Beer> (
                                         get: { beer },
                                         set: { newValue in
                                             if let index = brand.beers.firstIndex(where: { $0.id == newValue.id } ) {
@@ -53,8 +52,8 @@ struct BeerListView: View {
                 })
                 .padding()
             }
-            .navigationTitle(brand.title)
         }
+        .navigationBarTitle(brand.title)
         .searchable(text: $searchText)
         .toolbar {
             Menu {
@@ -70,7 +69,7 @@ struct BeerListView: View {
                 }
                 .onChange(of: vm.selectedSortField) { _ in vm.sort(withId:brand.id) }
             } label: {
-                Label("Menu", systemImage: "ellipsis.circle")
+                Label("Menu", systemImage: "line.3.horizontal.decrease.circle.fill")
             }
         }
     }
