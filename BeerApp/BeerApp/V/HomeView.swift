@@ -14,32 +14,40 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             WheatherView()
-            List{
-                if ($vm.favorites.count > 0) {
-                    ForEach($vm.favorites, id: \.id) { $fav in
-                        HStack {
-                            Image(uiImage: UIImage(data:fav.image)!)
-                                .resizable()
-                                .frame(width: 40, height: 40)
-                                .scaledToFill()
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
-                                .overlay(Circle().stroke(Color.blue, lineWidth: 1))
-                                .padding()
-                            Text(fav.title)
-                                .font(.title)
-                        }
-                        .swipeActions(edge: .trailing) {
-                            Button {
-                                vm.favoriteBeer(beer: $fav)
-                            } label : {
-                                Label(String(localized: "Star"), systemImage: "star.fill")
+            List {
+                Section {
+                    if ($vm.favorites.count > 0) {
+                        ForEach($vm.favorites, id: \.id) { $fav in
+                            HStack {
+                                Image(uiImage: UIImage(data:fav.image)!)
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                    .scaledToFill()
+                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                                    .overlay(Circle().stroke(Color.blue, lineWidth: 1))
+                                    .padding()
+                                Text(fav.title)
+                                    .font(.title)
                             }
-                            .tint(.yellow)
+                            .swipeActions(edge: .trailing) {
+                                Button {
+                                    vm.favoriteBeer(beer: $fav)
+                                } label : {
+                                    Label(String(localized: "Star"), systemImage: "star.fill")
+                                }
+                                .tint(.yellow)
+                            }
                         }
+                    } else {
+                        Text(String(localized: "NoFavBeers"))
                     }
-                } else {
-                    Text(String(localized: "NoFavBeers"))
+                } header: {
+                    Text(String(localized: "FavoriteBeers"))
+                        .frame(height: 50)
+                } footer: {
+                    Text(String(localized: "HowToAddFavs"))
                 }
+                .headerProminence(.increased)
             }
             .navigationTitle(String(localized:"HomeTitle"))
         }
