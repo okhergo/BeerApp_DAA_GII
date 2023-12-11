@@ -23,54 +23,54 @@ struct BeerListView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack{
-                List {
-                    ForEach(BeerType.allCases, id: \.id) { value in
-                        Section(value.rawValue.capitalized){
-                            ForEach(filteredBeers, id: \.id) { beer in
-                                if(beer.type == value.rawValue){
-                                    BeerItem(beer: Binding<Beer> (
-                                        get: { beer },
-                                        set: { newValue in
-                                            if let index = brand.beers.firstIndex(where: { $0.id == newValue.id } ) {
-                                                brand.beers[index] = newValue
-                                            }
+        VStack{
+            List {
+                ForEach(BeerType.allCases, id: \.id) { value in
+                    Section(value.rawValue.capitalized){
+                        ForEach(filteredBeers, id: \.id) { beer in
+                            if(beer.type == value.rawValue){
+                                BeerItem(beer: Binding<Beer> (
+                                    get: { beer },
+                                    set: { newValue in
+                                        if let index = brand.beers.firstIndex(where: { $0.id == newValue.id } ) {
+                                            brand.beers[index] = newValue
                                         }
-                                    ), brand: $brand)
+                                    }
+                                ), brand: $brand)
+                            }
+                        }
+                    }
+                }
+            }
+            Button(action: {
+                isPresented.toggle()
+            }, label: {
+                Text(String(localized:"AddNewBeer"))
+            })
+            .sheet(isPresented: $isPresented, content: { AddBeerView(dismissSheet: $isPresented, brand: $brand)
+            })
+            .padding()
+        }
+        .searchable(text: $searchText)
+        .toolbar {
+            ToolbarItem (placement: .navigationBarTrailing) {
+                Menu {
+                    Picker(selection: $vm.selectedSortField, label: Text("Sorting")) {
+                        ForEach(SortField.allCases, id: \.self) { field in
+                            HStack {
+                                Text(field.rawValue.capitalized)
+                                if vm.selectedSortField == field {
+                                    Image(systemName: vm.ascending ? "arrow.up" : "arrow.down")
                                 }
                             }
                         }
                     }
+                    .onChange(of: vm.selectedSortField) { _ in vm.sort(withId:brand.id) }
+                } label: {
+                    Label("Menu", systemImage: "line.3.horizontal.decrease.circle.fill")
                 }
-                Button(action: {
-                    isPresented.toggle()
-                }, label: {
-                    Text(String(localized:"AddNewBeer"))
-                })
-                .sheet(isPresented: $isPresented, content: { AddBeerView(dismissSheet: $isPresented, brand: $brand)
-                })
-                .padding()
             }
         }
         .navigationBarTitle(brand.title)
-        .searchable(text: $searchText)
-        .toolbar {
-            Menu {
-                Picker(selection: $vm.selectedSortField, label: Text("Sorting")) {
-                    ForEach(SortField.allCases, id: \.self) { field in
-                        HStack {
-                            Text(field.rawValue.capitalized)
-                            if vm.selectedSortField == field {
-                                Image(systemName: vm.ascending ? "arrow.up" : "arrow.down")
-                            }
-                        }
-                    }
-                }
-                .onChange(of: vm.selectedSortField) { _ in vm.sort(withId:brand.id) }
-            } label: {
-                Label("Menu", systemImage: "line.3.horizontal.decrease.circle.fill")
-            }
-        }
     }
 }

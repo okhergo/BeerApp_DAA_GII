@@ -34,6 +34,9 @@
 		CFD0B7FC2B2480B800275D0F /* BeerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B7FB2B2480B800275D0F /* BeerListView.swift */; };
 		CFD0B8002B24857C00275D0F /* AddBeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B7FF2B24857C00275D0F /* AddBeerView.swift */; };
 		CFD0B8032B2485C400275D0F /* EditBeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B8022B2485C400275D0F /* EditBeerView.swift */; };
+		CFDAA3442B2770670020BDFE /* DataModel.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = CFDAA3412B2770660020BDFE /* DataModel.sqlite-shm */; };
+		CFDAA3452B2770670020BDFE /* DataModel.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CFDAA3422B2770670020BDFE /* DataModel.sqlite */; };
+		CFDAA3462B2770670020BDFE /* DataModel.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = CFDAA3432B2770670020BDFE /* DataModel.sqlite-wal */; };
 		CFF4CF102B26814D005FB671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF4CF0F2B26814D005FB671 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +69,9 @@
 		CFD0B7FB2B2480B800275D0F /* BeerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListView.swift; sourceTree = "<group>"; };
 		CFD0B7FF2B24857C00275D0F /* AddBeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeerView.swift; sourceTree = "<group>"; };
 		CFD0B8022B2485C400275D0F /* EditBeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBeerView.swift; sourceTree = "<group>"; };
+		CFDAA3412B2770660020BDFE /* DataModel.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DataModel.sqlite-shm"; sourceTree = "<group>"; };
+		CFDAA3422B2770670020BDFE /* DataModel.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = DataModel.sqlite; sourceTree = "<group>"; };
+		CFDAA3432B2770670020BDFE /* DataModel.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DataModel.sqlite-wal"; sourceTree = "<group>"; };
 		CFF4CF0F2B26814D005FB671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +127,7 @@
 		CFBEF9432B1F8BAB00CBF116 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				CFDAA3472B2770760020BDFE /* PreloadData */,
 				CF89BD842B1F805900959180 /* Brand.swift */,
 				CF8ADAE92B22170900B1406C /* Beer.swift */,
 				CFBEF9542B1F8F6800CBF116 /* User.swift */,
@@ -187,6 +194,16 @@
 			path = Add;
 			sourceTree = "<group>";
 		};
+		CFDAA3472B2770760020BDFE /* PreloadData */ = {
+			isa = PBXGroup;
+			children = (
+				CFDAA3422B2770670020BDFE /* DataModel.sqlite */,
+				CFDAA3412B2770660020BDFE /* DataModel.sqlite-shm */,
+				CFDAA3432B2770670020BDFE /* DataModel.sqlite-wal */,
+			);
+			path = PreloadData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -246,6 +263,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFDAA3442B2770670020BDFE /* DataModel.sqlite-shm in Resources */,
+				CFDAA3452B2770670020BDFE /* DataModel.sqlite in Resources */,
+				CFDAA3462B2770670020BDFE /* DataModel.sqlite-wal in Resources */,
 				CF15A8E22B1A39FE000C43B3 /* Preview Assets.xcassets in Resources */,
 				CF15A8DF2B1A39FE000C43B3 /* Assets.xcassets in Resources */,
 				CF89BD972B1F878500959180 /* Localizable.xcstrings in Resources */,

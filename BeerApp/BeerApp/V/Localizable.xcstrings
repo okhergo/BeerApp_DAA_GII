@@ -84,6 +84,23 @@
         }
       }
     },
+    "DAA" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desarrollo de Aplicaciones Avanzadas"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desarrollo de Aplicaciones Avanzadas"
+          }
+        }
+      }
+    },
     "Developer" : {
       "localizations" : {
         "en" : {
@@ -564,13 +581,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Desarrollo de Aplicaciones Avanzadas - USAL"
+            "value" : "Universidad de Salamanca"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Desarrollo de Aplicaciones Avanzadas - USAL"
+            "value" : "Universidad de Salamanca"
           }
         }
       }

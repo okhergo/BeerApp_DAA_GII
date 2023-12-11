@@ -27,9 +27,9 @@ struct BeerItem: View {
                     .padding()
                 VStack (alignment: .leading){
                     Text(beer.title)
-                        .font(.title2).bold()
+                        .font(.title2).bold().foregroundColor(.black)
                     Text(String(format: "%.1f", beer.grades) + "% ºC | "  + String(format: "%.0f", beer.cal) + " kcal")
-                        .font(.subheadline)
+                        .font(.subheadline).foregroundColor(.black)
                 }
             }
             .swipeActions(edge: .trailing) {
