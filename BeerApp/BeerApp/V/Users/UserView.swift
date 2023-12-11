@@ -20,6 +20,9 @@ struct UserView: View {
         NavigationView {
             VStack{
                 Text(String(localized: "Developer"))
+                Text(String(localized: "Name"))
+                Text(String(localized: "USAL"))
+                Text(String(localized: "Year"))
             }
             .navigationTitle(String(localized: "Welcome") + username)
         }

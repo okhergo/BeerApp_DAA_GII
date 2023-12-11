@@ -89,13 +89,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Información del desarrollador:\\nÓscar Hernández Gómez\\nDesarrollo de Aplicaciones Avanzadas USAL"
+            "value" : "Información del desarrollador"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Información del desarrollador:\\nÓscar Hernández Gómez\\nDesarrollo de Aplicaciones Avanzadas USAL"
+            "value" : "Información del desarrollador:"
           }
         }
       }
@@ -111,7 +111,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Descartar los cambios"
+            "value" : "Descartar"
           }
         }
       }
@@ -132,6 +132,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Editar"
+          }
+        }
+      }
+    },
+    "EmptyFields" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There are some empty fields"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algunos campos están vacíos"
           }
         }
       }
@@ -294,6 +311,23 @@
         }
       }
     },
+    "Name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Óscar Hernández Gómez"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Óscar Hernández Gómez"
+          }
+        }
+      }
+    },
     "NoFavBeers" : {
       "localizations" : {
         "en" : {
@@ -306,6 +340,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hay cervezas favoritas"
+          }
+        }
+      }
+    },
+    "NumberError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid number format"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formato de número inválido"
           }
         }
       }
@@ -463,12 +514,63 @@
         }
       }
     },
+    "Type" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beer type: "
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo de cerveza: "
+          }
+        }
+      }
+    },
+    "UnableToSave" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to save"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo guardar"
+          }
+        }
+      }
+    },
     "Update" : {
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualizar"
+          }
+        }
+      }
+    },
+    "USAL" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desarrollo de Aplicaciones Avanzadas - USAL"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desarrollo de Aplicaciones Avanzadas - USAL"
           }
         }
       }
@@ -537,6 +639,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Frío o calor, una cerveza nunca no"
+          }
+        }
+      }
+    },
+    "Year" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2023-24"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2023-24"
           }
         }
       }

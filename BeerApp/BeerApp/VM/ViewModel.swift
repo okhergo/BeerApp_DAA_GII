@@ -21,7 +21,13 @@ enum BeerType: String, CaseIterable, Identifiable {
 
 extension String {
     func toDouble() -> Double? {
-        return NumberFormatter().number(from: self)?.doubleValue
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .decimal
+        formatter.decimalSeparator = "."
+        let number = formatter.number(from: self)
+        
+        return number as? Double
     }
 }
 
@@ -86,17 +92,18 @@ final class ViewModel: ObservableObject {
         manager.createBrand(title: title, type: type.rawValue, image: selectedImageData!) { [weak self] in self?.fetchAll() }
     }
     
-    func saveBeer(withId id: String) {
-        guard let gradesDouble = grades.toDouble() else {return}
-        guard let calDouble = cal.toDouble() else {return}
+    func saveBeer(withId id: String) -> String {
+        guard let gradesDouble = grades.toDouble() else {return String(localized: "NumberError")}
+        guard let calDouble = cal.toDouble() else {return String(localized: "NumberError")}
         
         /*
         let newBeer = Beer(title: title, image: selectedImageData!, type: typeBeer.rawValue, grades: gradesDouble, cal: calDouble)
         }
         */
         
-        guard let i = brands.firstIndex(where: { $0.id == id }) else {return}
+        guard let i = brands.firstIndex(where: { $0.id == id }) else {return String(localized: "UnableToSave")}
         manager.createBeer(title: title, type: typeBeer.rawValue, image: selectedImageData!, grades: gradesDouble, cal: calDouble, index: i) { [weak self] in self?.fetchAll() }
+        return ""
     }
     
     func removeBrand(withId id: String) {

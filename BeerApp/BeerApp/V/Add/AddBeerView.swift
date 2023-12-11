@@ -12,6 +12,7 @@ struct AddBeerView: View {
     @EnvironmentObject var vm: ViewModel
     @Binding var dismissSheet: Bool
     @Binding var brand: Brand
+    @State var result: String = ""
     
     var body: some View {
         NavigationStack{
@@ -56,6 +57,7 @@ struct AddBeerView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
             }
+            Text(result)
             HStack {
                 Button(action: {
                     vm.selectedImageData = nil
@@ -64,11 +66,11 @@ struct AddBeerView: View {
                 { Text(String(localized: "Dismiss")) }
                     .foregroundColor(.red)
                 Button(action: {
-                    guard (vm.selectedImageData != nil) else { return }
-                    guard !vm.title.isEmpty else { return }
-                    guard !vm.grades.isEmpty else { return }
-                    guard !vm.cal.isEmpty else { return }
-                    vm.saveBeer(withId: brand.id)
+                    guard (vm.selectedImageData != nil) else { result = String(localized: "EmptyFields"); return }
+                    guard !vm.title.isEmpty else { result = String(localized: "EmptyFields"); return }
+                    guard !vm.grades.isEmpty else { result = String(localized: "EmptyFields"); return }
+                    guard !vm.cal.isEmpty else { result = String(localized: "EmptyFields"); return }
+                    result = vm.saveBeer(withId: brand.id)
                     vm.selectedImageData = nil
                     vm.title = ""
                     vm.grades = ""

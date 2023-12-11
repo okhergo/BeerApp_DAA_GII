@@ -22,14 +22,13 @@ struct BeerDetailView: View {
                         .frame(width: 200, height: 200)
                         .scaledToFill()
                         .clipShape(RoundedRectangle(cornerRadius: 100))
-                        .overlay(Circle().stroke(Color.blue, lineWidth: 1))
                         .padding()
                     
                     if ($vm.favorites.first(where: { $0.id == beer.id }) != nil) {
-                        Image(systemName: "star.fill")
+                        Image(systemName: "star.fill").foregroundColor(.yellow)
                     }
                 }
-                Text(beer.type)
+                Text(String(localized:"Type") + beer.type.capitalized)
                 Text(String(localized:"Gradation") + ": " + String(format: "%.1f", beer.grades))
                 Text(String(localized: "Calories") + ": " + String(format: "%.0f", beer.cal))
                 Spacer()

@@ -13,6 +13,7 @@ struct EditBeerView: View {
     @Binding var dismissSheet: Bool
     @Binding var brand: Brand
     @Binding var beer: Beer
+    @State var result: String = ""
     
     var body: some View {
         NavigationView{
@@ -66,6 +67,7 @@ struct EditBeerView: View {
                             .padding()
                     }
                 }
+                Text(result)
                 HStack {
                     Button(action: {
                         vm.selectedImageData = nil
@@ -78,10 +80,12 @@ struct EditBeerView: View {
                     Button(action: {
                         if (vm.selectedImageData == nil){ vm.selectedImageData = beer.image }
                         if vm.title.isEmpty { vm.title = beer.title }
-                        if vm.grades.isEmpty { vm.grades = "\(beer.grades)" }
-                        if vm.cal.isEmpty { vm.cal = "\(beer.cal)" }
-                        vm.removeBeer(withId: beer.id, withBrandId: brand.id)
-                        vm.saveBeer(withId: brand.id)
+                        if vm.grades.isEmpty { vm.grades = String(beer.grades) }
+                        if vm.cal.isEmpty { vm.cal = String(beer.cal) }
+                        result = vm.saveBeer(withId: brand.id)
+                        if result.isEmpty {
+                            vm.removeBeer(withId: beer.id, withBrandId: brand.id)
+                        } else { return }
                         vm.selectedImageData = nil
                         vm.title = ""
                         vm.grades = ""
