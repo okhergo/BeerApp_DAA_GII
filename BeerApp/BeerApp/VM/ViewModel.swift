@@ -15,7 +15,7 @@ enum BrandType: String, CaseIterable, Identifiable {
 }
 
 enum BeerType: String, CaseIterable, Identifiable {
-    case lager, pilsen, IPA, pale_Ale
+    case lager, pilsen, negra, mixta
     var id: String { self.rawValue }
 }
 
@@ -58,7 +58,6 @@ final class ViewModel: ObservableObject {
         // LOAD FROM CORE DATA
         fetchAll()
     }
-    
     
     func fetchAll() {
         brands.removeAll()

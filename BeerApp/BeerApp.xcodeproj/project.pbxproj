@@ -34,6 +34,7 @@
 		CFD0B7FC2B2480B800275D0F /* BeerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B7FB2B2480B800275D0F /* BeerListView.swift */; };
 		CFD0B8002B24857C00275D0F /* AddBeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B7FF2B24857C00275D0F /* AddBeerView.swift */; };
 		CFD0B8032B2485C400275D0F /* EditBeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B8022B2485C400275D0F /* EditBeerView.swift */; };
+		CFF4CF102B26814D005FB671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF4CF0F2B26814D005FB671 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		CFD0B7FB2B2480B800275D0F /* BeerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListView.swift; sourceTree = "<group>"; };
 		CFD0B7FF2B24857C00275D0F /* AddBeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeerView.swift; sourceTree = "<group>"; };
 		CFD0B8022B2485C400275D0F /* EditBeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBeerView.swift; sourceTree = "<group>"; };
+		CFF4CF0F2B26814D005FB671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				CF15A8DA2B1A39FC000C43B3 /* BeerAppApp.swift */,
+				CFF4CF0F2B26814D005FB671 /* AppDelegate.swift */,
 				CFBEF9472B1F8C0500CBF116 /* V */,
 				CFBEF9432B1F8BAB00CBF116 /* M */,
 				CFBEF9442B1F8BB500CBF116 /* VM */,
@@ -269,6 +272,7 @@
 				CFD0B7FA2B24806A00275D0F /* ListItem.swift in Sources */,
 				CF89BD872B1F806900959180 /* ViewModel.swift in Sources */,
 				CFBEF94B2B1F8DF800CBF116 /* ListView.swift in Sources */,
+				CFF4CF102B26814D005FB671 /* AppDelegate.swift in Sources */,
 				CF8ADAE02B20B7D900B1406C /* AddManufacturerView.swift in Sources */,
 				CF8ADAEA2B22170900B1406C /* Beer.swift in Sources */,
 				CF8ADAE62B220C7900B1406C /* WheatherView.swift in Sources */,
@@ -413,6 +417,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BeerApp/Preview Content\"";
+				DEVELOPMENT_TEAM = Y95WA52UVP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Necesitamos acceso a tu camara para poder añadir imágenes";
@@ -446,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BeerApp/Preview Content\"";
+				DEVELOPMENT_TEAM = Y95WA52UVP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Necesitamos acceso a tu camara para poder añadir imágenes";
