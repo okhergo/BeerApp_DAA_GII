@@ -12,6 +12,9 @@
 		CF15A8DF2B1A39FE000C43B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF15A8DE2B1A39FE000C43B3 /* Assets.xcassets */; };
 		CF15A8E22B1A39FE000C43B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF15A8E12B1A39FE000C43B3 /* Preview Assets.xcassets */; };
 		CF1D6A7D2B24DDAD00787F09 /* BeerListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D6A7C2B24DDAD00787F09 /* BeerListItem.swift */; };
+		CF628C882B28F9D9004F6FF9 /* Banking.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = CF628C852B28F9D9004F6FF9 /* Banking.sqlite-shm */; };
+		CF628C892B28F9D9004F6FF9 /* Banking.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = CF628C862B28F9D9004F6FF9 /* Banking.sqlite-wal */; };
+		CF628C8A2B28F9D9004F6FF9 /* Banking.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CF628C872B28F9D9004F6FF9 /* Banking.sqlite */; };
 		CF89BD852B1F805900959180 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF89BD842B1F805900959180 /* Brand.swift */; };
 		CF89BD872B1F806900959180 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF89BD862B1F806900959180 /* ViewModel.swift */; };
 		CF89BD972B1F878500959180 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CF89BD962B1F878500959180 /* Localizable.xcstrings */; };
@@ -34,9 +37,6 @@
 		CFD0B7FC2B2480B800275D0F /* BeerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B7FB2B2480B800275D0F /* BeerListView.swift */; };
 		CFD0B8002B24857C00275D0F /* AddBeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B7FF2B24857C00275D0F /* AddBeerView.swift */; };
 		CFD0B8032B2485C400275D0F /* EditBeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B8022B2485C400275D0F /* EditBeerView.swift */; };
-		CFDAA3442B2770670020BDFE /* DataModel.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = CFDAA3412B2770660020BDFE /* DataModel.sqlite-shm */; };
-		CFDAA3452B2770670020BDFE /* DataModel.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CFDAA3422B2770670020BDFE /* DataModel.sqlite */; };
-		CFDAA3462B2770670020BDFE /* DataModel.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = CFDAA3432B2770670020BDFE /* DataModel.sqlite-wal */; };
 		CFF4CF102B26814D005FB671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF4CF0F2B26814D005FB671 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +47,9 @@
 		CF15A8DE2B1A39FE000C43B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF15A8E12B1A39FE000C43B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CF1D6A7C2B24DDAD00787F09 /* BeerListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListItem.swift; sourceTree = "<group>"; };
+		CF628C852B28F9D9004F6FF9 /* Banking.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Banking.sqlite-shm"; sourceTree = "<group>"; };
+		CF628C862B28F9D9004F6FF9 /* Banking.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Banking.sqlite-wal"; sourceTree = "<group>"; };
+		CF628C872B28F9D9004F6FF9 /* Banking.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Banking.sqlite; sourceTree = "<group>"; };
 		CF89BD842B1F805900959180 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		CF89BD862B1F806900959180 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		CF89BD962B1F878500959180 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -69,9 +72,6 @@
 		CFD0B7FB2B2480B800275D0F /* BeerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListView.swift; sourceTree = "<group>"; };
 		CFD0B7FF2B24857C00275D0F /* AddBeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeerView.swift; sourceTree = "<group>"; };
 		CFD0B8022B2485C400275D0F /* EditBeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBeerView.swift; sourceTree = "<group>"; };
-		CFDAA3412B2770660020BDFE /* DataModel.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DataModel.sqlite-shm"; sourceTree = "<group>"; };
-		CFDAA3422B2770670020BDFE /* DataModel.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = DataModel.sqlite; sourceTree = "<group>"; };
-		CFDAA3432B2770670020BDFE /* DataModel.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DataModel.sqlite-wal"; sourceTree = "<group>"; };
 		CFF4CF0F2B26814D005FB671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,9 +197,9 @@
 		CFDAA3472B2770760020BDFE /* PreloadData */ = {
 			isa = PBXGroup;
 			children = (
-				CFDAA3422B2770670020BDFE /* DataModel.sqlite */,
-				CFDAA3412B2770660020BDFE /* DataModel.sqlite-shm */,
-				CFDAA3432B2770670020BDFE /* DataModel.sqlite-wal */,
+				CF628C872B28F9D9004F6FF9 /* Banking.sqlite */,
+				CF628C852B28F9D9004F6FF9 /* Banking.sqlite-shm */,
+				CF628C862B28F9D9004F6FF9 /* Banking.sqlite-wal */,
 			);
 			path = PreloadData;
 			sourceTree = "<group>";
@@ -263,9 +263,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFDAA3442B2770670020BDFE /* DataModel.sqlite-shm in Resources */,
-				CFDAA3452B2770670020BDFE /* DataModel.sqlite in Resources */,
-				CFDAA3462B2770670020BDFE /* DataModel.sqlite-wal in Resources */,
+				CF628C882B28F9D9004F6FF9 /* Banking.sqlite-shm in Resources */,
+				CF628C892B28F9D9004F6FF9 /* Banking.sqlite-wal in Resources */,
+				CF628C8A2B28F9D9004F6FF9 /* Banking.sqlite in Resources */,
 				CF15A8E22B1A39FE000C43B3 /* Preview Assets.xcassets in Resources */,
 				CF15A8DF2B1A39FE000C43B3 /* Assets.xcassets in Resources */,
 				CF89BD972B1F878500959180 /* Localizable.xcstrings in Resources */,

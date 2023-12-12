@@ -61,7 +61,7 @@ class CoreDataManager {
         
     func createBeer(title: String, type: String, image: Data, grades: Double, cal: Double, index: Int, completion: @escaping() -> Void) {
         let context = container.viewContext
-        guard let brand = retrieveBrand(index) else { return }
+        let brands = fetchBrands()
         
         let newBeer = BeerE(context: context)
         newBeer.id = UUID().uuidString
@@ -71,7 +71,7 @@ class CoreDataManager {
         newBeer.grades = grades
         newBeer.cal = cal
         
-        newBeer.brand = brand
+        newBeer.brand = brands[index]
         
         do {
         try context.save()
@@ -81,11 +81,12 @@ class CoreDataManager {
         }
     }
     
-    func deleteBrand(at index: Int, completion: @escaping() -> Void) {
+    func deleteBrand(withId id: String, completion: @escaping() -> Void) {
         let context = container.viewContext
         
         let brands = fetchBrands()
-        context.delete(brands[index])
+        guard let i = brands.firstIndex(where: { $0.id == id }) else {return}
+        context.delete(brands[i])
         
         do {
         try context.save()
@@ -95,35 +96,23 @@ class CoreDataManager {
         }
     }
     
-    func deleteBeer(at index: Int, brandIndex: Int, completion: @escaping() -> Void) {
+    func deleteBeer(withId id: String, withBrandId bid: String, completion: @escaping() -> Void) {
         let context = container.viewContext
-        guard let brand = retrieveBrand(brandIndex) else { return }
         
-        let beers = fetchBeers(brand)
-        context.delete(beers[index])
+        let brands = fetchBrands()
+        
+        guard let brandIndex = brands.firstIndex(where: { $0.id == bid }) else { return }
+        
+        let beers = fetchBeers(brands[brandIndex])
+        
+        guard let i = beers.firstIndex(where: { $0.id == id }) else { return }
+        context.delete(beers[i])
         
         do {
         try context.save()
             completion()
         } catch {
             print("Error deleting brand — \(error)")
-        }
-    }
-    
-    func retrieveBrand(_ index: Int) -> BrandE? {
-        let context = container.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BrandE")
-        
-        do {
-            let result = try context.fetch(fetchRequest) as! [BrandE]
-            if result.count > 0 {
-                return result[index]
-            } else {
-                return nil
-            }
-        } catch let error as NSError {
-            print("Retrieving brand failed. \(error)")
-            return nil
         }
     }
 

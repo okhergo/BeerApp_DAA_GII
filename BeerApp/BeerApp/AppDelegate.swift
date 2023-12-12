@@ -23,12 +23,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
     
     func preloadData() {
-    let sourceSqliteURLs = [Bundle.main.url(forResource: "DataModel", withExtension: "sqlite"), Bundle.main.url(forResource: "DataModel", withExtension: "sqlite-wal"), Bundle.main.url(forResource: "DataModel", withExtension: "sqlite-shm")]
+    let sourceSqliteURLs = [Bundle.main.url(forResource: "Banking", withExtension: "sqlite"), Bundle.main.url(forResource: "Banking", withExtension: "sqlite-wal"), Bundle.main.url(forResource: "Banking", withExtension: "sqlite-shm")]
 
         let destSqliteURLs = [
-            URL(fileURLWithPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/DataModel.sqlite"),
-            URL(fileURLWithPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/DataModel.sqlite-wal"),
-            URL(fileURLWithPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/DataModel.sqlite-shm")]
+            URL(fileURLWithPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/Banking.sqlite"),
+            URL(fileURLWithPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/Banking.sqlite-wal"),
+            URL(fileURLWithPath: NSPersistentContainer.defaultDirectoryURL().relativePath + "/Banking.sqlite-shm")]
 
         for index in 0...sourceSqliteURLs.count-1 {
             do {

@@ -109,27 +109,23 @@ final class ViewModel: ObservableObject {
     func removeBrand(withId id: String) {
         //brands.removeAll(where: { $0.id == id })
         
-        guard let i = brands.firstIndex(where: { $0.id == id }) else {return}
-        manager.deleteBrand(at: i) { [weak self] in self?.fetchAll() }
+        manager.deleteBrand(withId: id) { [weak self] in self?.fetchAll() }
     }
     
     func removeBeer(withId id: String, withBrandId bid: String) {
-        if let i = brands.firstIndex(where: { $0.id == bid }) {
-            //brands[i].beers.removeAll(where: { $0.id == id })
-            
-            guard let j = brands[i].beers.firstIndex(where: { $0.id == id }) else {return}
-            favorites.removeAll(where: { $0.id == id })
-            encodeFav()
-            manager.deleteBeer(at: j, brandIndex: i) { [weak self] in self?.fetchAll() }
-        }
+        manager.deleteBeer(withId: id, withBrandId: bid) { [weak self] in self?.fetchAll() }
+        //brands[i].beers.removeAll(where: { $0.id == id })
+        
+        favorites.removeAll(where: { $0.id == id })
+        encodeFav()
     }
-    
+
     func sort(withId id: String) {
         if let i = brands.firstIndex(where: { $0.id == id }) {
             switch selectedSortField {
-            case .name: brands[i].beers.sort { ascending ? $0.title < $1.title : $0.title > $1.title }
-            case .grades: brands[i].beers.sort { ascending ? $0.grades < $1.grades : $0.grades > $1.grades }
-            case .calories: brands[i].beers.sort { ascending ? $0.cal < $1.cal : $0.cal > $1.cal }
+            case .name: brands[i].beers.sort { $0.title < $1.title }
+            case .grades: brands[i].beers.sort { $0.grades > $1.grades }
+            case .calories: brands[i].beers.sort { $0.cal > $1.cal }
             }
         }
     }
