@@ -23,7 +23,7 @@ final class UserViewModel: ObservableObject {
     @Published var selectedItem: PhotosPickerItem? = nil
     @Published var selectedImageData: Data? = nil
     @Published var beerId: String = ""
-    @Published var points: Int = 0
+    @Published var points: Int = 1
     @Published var caption: String = ""
     
     @Published var userLogged: UserE?

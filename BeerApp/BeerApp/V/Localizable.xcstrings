@@ -46,7 +46,20 @@
       }
     },
     "AddNewReview" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add new review"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añade una nueva reseña"
+          }
+        }
+      }
     },
     "BeerList" : {
       "localizations" : {
@@ -328,7 +341,20 @@
       }
     },
     "InsertReviewCaption" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Write review"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escribe la reseña"
+          }
+        }
+      }
     },
     "LoginButton" : {
       "localizations" : {
@@ -449,7 +475,20 @@
       }
     },
     "Reviews" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your reviews"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus reseñas"
+          }
+        }
+      }
     },
     "Save" : {
       "localizations" : {
@@ -532,16 +571,68 @@
       }
     },
     "SelectReviewBeer" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select beer"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona la cerveza"
+          }
+        }
+      }
     },
     "SelectReviewFoto" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add a photo"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añade una foto"
+          }
+        }
+      }
     },
     "SelectReviewPhoto" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add a photo"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añade una foto"
+          }
+        }
+      }
     },
     "SelectReviewPoints" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Points"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puntuación"
+          }
+        }
+      }
     },
     "SignInButton" : {
       "extractionState" : "manual",
@@ -663,10 +754,16 @@
     },
     "Username" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nombre de usuario"
+            "value" : "Nombre"
           }
         }
       }

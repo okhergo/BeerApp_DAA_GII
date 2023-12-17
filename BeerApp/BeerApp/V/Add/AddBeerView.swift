@@ -60,9 +60,7 @@ struct AddBeerView: View {
             Text(result)
             HStack {
                 Button(action: {
-                    vm.selectedImageData = nil
-                    vm.title = ""
-                    dismissSheet = false })
+                    clearFields() })
                 { Text(String(localized: "Dismiss")) }
                     .foregroundColor(.red)
                 Button(action: {
@@ -71,13 +69,18 @@ struct AddBeerView: View {
                     guard !vm.grades.isEmpty else { result = String(localized: "EmptyFields"); return }
                     guard !vm.cal.isEmpty else { result = String(localized: "EmptyFields"); return }
                     result = vm.saveBeer(withId: brand.id)
-                    vm.selectedImageData = nil
-                    vm.title = ""
-                    vm.grades = ""
-                    vm.cal = ""
-                    dismissSheet = false })
+                    clearFields() })
                 { Text(String(localized: "Save")) }
             } .padding()
         }
+    }
+    
+    func clearFields(){
+        vm.selectedItem = nil
+        vm.selectedImageData = nil
+        vm.title = ""
+        vm.grades = ""
+        vm.cal = ""
+        dismissSheet = false
     }
 }

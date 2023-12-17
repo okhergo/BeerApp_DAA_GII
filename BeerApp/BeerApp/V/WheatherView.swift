@@ -11,10 +11,31 @@ struct WheatherView: View {
     @StateObject private var vm = WeatherViewModel()
     var body: some View{
         ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .padding(10)
-                .foregroundColor(.blue)
-                .frame(height: 150)
+            if(vm.hourlyForecasts.first?.temperature ?? 0 > 15){
+                Image("HotWeather")
+                    .resizable()
+                    .frame(height: 150)
+                    .cornerRadius(10)
+                    .padding(10)
+                Rectangle()
+                    .background(.yellow)
+                    .opacity(0.2)
+                    .frame(height: 150)
+                    .cornerRadius(10)
+                    .padding(10)
+            } else {
+                Image("ColdWeather")
+                    .resizable()
+                    .frame(height: 150)
+                    .cornerRadius(10)
+                    .padding(10)
+                Rectangle()
+                    .background(.blue)
+                    .opacity(0.4)
+                    .frame(height: 150)
+                    .cornerRadius(10)
+                    .padding(10)
+            }
             VStack {
                 HStack {
                     Text("\(vm.hourlyForecasts.first?.temperature ?? 0, specifier: "%.1f")°C")
@@ -25,14 +46,14 @@ struct WheatherView: View {
                     Text("\(vm.currentCity)")
                         .foregroundColor(.black)
                 }
-                if (vm.hourlyForecasts.first?.temperature ?? 0 > 13){
+                if (vm.hourlyForecasts.first?.temperature ?? 0 > 15){
                     Text(String(localized: "WheaterSubtitle"))
                         .foregroundColor(.white)
-                        .font(.subheadline)
+                        .font(.subheadline).bold()
                 } else {
                     Text(String(localized: "WheaterSubtitleNo"))
                         .foregroundColor(.white)
-                        .font(.subheadline)
+                        .font(.subheadline).bold()
                 }
             }
         }

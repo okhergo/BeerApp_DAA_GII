@@ -24,10 +24,22 @@ struct AddReviewView: View {
                         }
                     }
                 }
-                Picker(String(localized:"SelectReviewPoints"), selection: $userVM.points) {
-                    ForEach((1...5), id: \.self) {
-                        Text("\($0)").tag($0)
-                    }
+                VStack {
+                    HStack {
+                        ForEach((1...userVM.points) , id: \.self) {_ in
+                            Image(systemName: "star.fill").foregroundColor(.yellow)
+                        }
+                        if(userVM.points < 5){
+                            ForEach((userVM.points...4) , id: \.self) {_ in
+                                Image(systemName: "star.fill").foregroundColor(.gray)
+                            }
+                        }
+                    }.padding()
+                    Picker(String(localized:"SelectReviewPoints"), selection: $userVM.points) {
+                        ForEach((1...5), id: \.self) {
+                            Text("\($0)").tag($0)
+                        }
+                    }.pickerStyle(.segmented)
                 }
                 TextField(String(localized:"InsertReviewCaption"), text: $userVM.caption)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -75,7 +87,7 @@ struct AddReviewView: View {
         userVM.selectedImageData = nil
         userVM.beerId = ""
         userVM.caption = ""
-        userVM.points = 0
+        userVM.points = 1
         dismissSheet = false
     }
 }

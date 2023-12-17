@@ -26,19 +26,16 @@ struct AddManufacturerView: View {
                             .overlay(Circle().stroke(Color.blue, lineWidth: 1))
                             .padding()
                     }
-                    PhotosPicker(
-                        selection: $vm.selectedItem,
-                        matching: .images,
-                        photoLibrary: .shared()) {
-                            Text(String(localized:"SelectManufacturerLogo"))
-                        }
-                        .onChange(of: vm.selectedItem) { newItem in
-                            Task {
-                                if let data = try? await newItem?.loadTransferable(type: Data.self){
-                                    vm.selectedImageData = data
-                                }
+                    PhotosPicker( selection: $vm.selectedItem, matching: .images, photoLibrary: .shared()) {
+                        Text(String(localized:"SelectManufacturerLogo"))
+                    }
+                    .onChange(of: vm.selectedItem) { newItem in
+                        Task {
+                            if let data = try? await newItem?.loadTransferable(type: Data.self){
+                                vm.selectedImageData = data
                             }
                         }
+                    }
                 }
                 TextField(String(localized:"InsertBrandName"), text: $vm.title)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -52,20 +49,23 @@ struct AddManufacturerView: View {
             }
             HStack {
                 Button(action: {
-                    vm.selectedImageData = nil
-                    vm.title = ""
-                    dismissSheet = false })
+                    clearFields() })
                 { Text(String(localized: "Dismiss")) }
                     .foregroundColor(.red)
                 Button(action: {
                     guard (vm.selectedImageData != nil) else { return }
                     guard !vm.title.isEmpty else { return }
                     vm.saveBrand()
-                    vm.selectedImageData = nil
-                    vm.title = ""
-                    dismissSheet = false })
+                    clearFields() })
                 { Text(String(localized: "Save")) }
             } .padding()
         }
+    }
+    
+    func clearFields(){
+        vm.selectedItem = nil
+        vm.selectedImageData = nil
+        vm.title = ""
+        dismissSheet = false
     }
 }

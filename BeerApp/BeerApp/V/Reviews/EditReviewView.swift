@@ -20,14 +20,26 @@ struct EditReviewView: View {
                 Picker(String(localized:"SelectReviewBeer"), selection: $userVM.beerId) {
                     ForEach($vm.brands) { brand in
                         ForEach(brand.beers){ beer in
-                            Text(brand.wrappedValue.title + " " +  beer.wrappedValue.title).tag(beer.id)
+                            Text(brand.wrappedValue.title + " " + beer.wrappedValue.title).tag(beer.id)
                         }
                     }
                 }
-                Picker(String(localized:"SelectReviewPoints"), selection: $userVM.points) {
-                    ForEach((1...5), id: \.self) {
-                        Text("\($0)").tag($0)
-                    }
+                VStack {
+                    HStack {
+                        ForEach((1...userVM.points) , id: \.self) {_ in
+                            Image(systemName: "star.fill").foregroundColor(.yellow)
+                        }
+                        if(userVM.points < 5){
+                            ForEach((userVM.points...4) , id: \.self) {_ in
+                                Image(systemName: "star.fill").foregroundColor(.gray)
+                            }
+                        }
+                    }.padding()
+                    Picker(String(localized:"SelectReviewPoints"), selection: $userVM.points) {
+                        ForEach((1...5), id: \.self) {
+                            Text("\($0)").tag($0)
+                        }
+                    }.pickerStyle(.segmented)
                 }
                 VStack{
                     Text(String(localized:"InsertReviewCaption"))
@@ -75,15 +87,13 @@ struct EditReviewView: View {
             userVM.beerId = review.beer!.id!
             userVM.selectedImageData = review.image
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Image(systemName: "chevron.backward"))
     }
     
     func clearFields(){
         userVM.selectedItem = nil
         userVM.selectedImageData = nil
         userVM.beerId = ""
-        userVM.points = 0
+        userVM.points = 1
         userVM.caption = ""
         dismissSheet = false
     }

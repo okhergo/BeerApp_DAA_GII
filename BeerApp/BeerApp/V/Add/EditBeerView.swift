@@ -70,31 +70,34 @@ struct EditBeerView: View {
                 Text(result)
                 HStack {
                     Button(action: {
-                        vm.selectedImageData = nil
-                        vm.title = ""
-                        vm.grades = ""
-                        vm.cal = ""
-                        dismissSheet = false })
+                        clearFields() })
                     { Text(String(localized: "DiscardChanges")) }
                         .foregroundColor(.red)
                     Button(action: {
-                        if (vm.selectedImageData == nil){ vm.selectedImageData = beer.image }
-                        if vm.title.isEmpty { vm.title = beer.title }
-                        if vm.grades.isEmpty { vm.grades = String(beer.grades) }
-                        if vm.cal.isEmpty { vm.cal = String(beer.cal) }
                         result = vm.saveBeer(withId: brand.id)
                         if result.isEmpty {
                             vm.removeBeer(withId: beer.id, withBrandId: brand.id)
                         } else { return }
-                        vm.selectedImageData = nil
-                        vm.title = ""
-                        vm.grades = ""
-                        vm.cal = ""
-                        dismissSheet = false })
+                        clearFields() })
                     { Text(String(localized: "Update")) }
                 } .padding()
             }
         }
+        .onAppear(){
+            vm.title = beer.title
+            vm.grades = String(beer.grades)
+            vm.cal = String(beer.cal)
+            vm.selectedImageData = beer.image
+        }
+    }
+    
+    func clearFields(){
+        vm.selectedItem = nil
+        vm.selectedImageData = nil
+        vm.title = ""
+        vm.grades = ""
+        vm.cal = ""
+        dismissSheet = false
     }
 }
 
