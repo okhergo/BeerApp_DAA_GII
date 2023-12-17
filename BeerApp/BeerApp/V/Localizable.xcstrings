@@ -10,6 +10,9 @@
     "%lf" : {
 
     },
+    "%lld" : {
+
+    },
     "AddNewBeer" : {
       "localizations" : {
         "en" : {
@@ -41,6 +44,9 @@
           }
         }
       }
+    },
+    "AddNewReview" : {
+
     },
     "BeerList" : {
       "localizations" : {
@@ -102,6 +108,7 @@
       }
     },
     "Developer" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -320,6 +327,9 @@
         }
       }
     },
+    "InsertReviewCaption" : {
+
+    },
     "LoginButton" : {
       "localizations" : {
         "en" : {
@@ -438,6 +448,9 @@
         }
       }
     },
+    "Reviews" : {
+
+    },
     "Save" : {
       "localizations" : {
         "en" : {
@@ -517,6 +530,18 @@
           }
         }
       }
+    },
+    "SelectReviewBeer" : {
+
+    },
+    "SelectReviewFoto" : {
+
+    },
+    "SelectReviewPhoto" : {
+
+    },
+    "SelectReviewPoints" : {
+
     },
     "SignInButton" : {
       "extractionState" : "manual",

@@ -50,7 +50,7 @@ final class ViewModel: ObservableObject {
     @Published var selectedSortField: SortField = .name
     @Published var ascending: Bool = false
     
-    private let manager = CoreDataManager()
+    private let manager = CoreDataManager.shared
     
     init() {
         /*
@@ -157,6 +157,7 @@ final class ViewModel: ObservableObject {
     }
     
     //JSON ENCODING BRANDS IN USER DEFAULTS
+    /*
     private func encodeAll() {
         if let encoded = try? JSONEncoder().encode(brands) {
             UserDefaults.standard.setValue(encoded, forKey: "brands")
@@ -173,4 +174,5 @@ final class ViewModel: ObservableObject {
         }
         return []
     }
+     */
 }

@@ -19,7 +19,7 @@ struct LoginView: View {
     @FocusState private var focusedField: Field?
     @State private var error: String = ""
     
-    @ObservedObject var userVM: UserViewModel
+    @EnvironmentObject var userVM: UserViewModel
     
     fileprivate func LoginButton() -> some View {
         Button(String(localized: "LoginButton")) {

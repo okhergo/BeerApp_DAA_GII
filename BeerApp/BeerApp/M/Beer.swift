@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Beer: Codable, Identifiable {
+struct Beer: Codable, Identifiable, Hashable {
     let id: String
     let title: String
     let image: Data

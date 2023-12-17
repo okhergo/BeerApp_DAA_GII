@@ -37,6 +37,11 @@
 		CFD0B7FC2B2480B800275D0F /* BeerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B7FB2B2480B800275D0F /* BeerListView.swift */; };
 		CFD0B8002B24857C00275D0F /* AddBeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B7FF2B24857C00275D0F /* AddBeerView.swift */; };
 		CFD0B8032B2485C400275D0F /* EditBeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B8022B2485C400275D0F /* EditBeerView.swift */; };
+		CFEDBD202B2BA96A00D87ECA /* ReviewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDBD1F2B2BA96A00D87ECA /* ReviewItem.swift */; };
+		CFEDBD222B2BA9EB00D87ECA /* ReviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDBD212B2BA9EB00D87ECA /* ReviewDetailView.swift */; };
+		CFEDBD252B2BAAF400D87ECA /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDBD242B2BAAF400D87ECA /* Review.swift */; };
+		CFEDBD272B2BB70F00D87ECA /* EditReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDBD262B2BB70F00D87ECA /* EditReviewView.swift */; };
+		CFEDBD292B2BBCA800D87ECA /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDBD282B2BBCA800D87ECA /* AddReviewView.swift */; };
 		CFF4CF102B26814D005FB671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF4CF0F2B26814D005FB671 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +77,11 @@
 		CFD0B7FB2B2480B800275D0F /* BeerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListView.swift; sourceTree = "<group>"; };
 		CFD0B7FF2B24857C00275D0F /* AddBeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeerView.swift; sourceTree = "<group>"; };
 		CFD0B8022B2485C400275D0F /* EditBeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBeerView.swift; sourceTree = "<group>"; };
+		CFEDBD1F2B2BA96A00D87ECA /* ReviewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewItem.swift; sourceTree = "<group>"; };
+		CFEDBD212B2BA9EB00D87ECA /* ReviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailView.swift; sourceTree = "<group>"; };
+		CFEDBD242B2BAAF400D87ECA /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		CFEDBD262B2BB70F00D87ECA /* EditReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReviewView.swift; sourceTree = "<group>"; };
+		CFEDBD282B2BBCA800D87ECA /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
 		CFF4CF0F2B26814D005FB671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +141,7 @@
 				CF89BD842B1F805900959180 /* Brand.swift */,
 				CF8ADAE92B22170900B1406C /* Beer.swift */,
 				CFBEF9542B1F8F6800CBF116 /* User.swift */,
+				CFEDBD242B2BAAF400D87ECA /* Review.swift */,
 				CF8ADAE12B220A9800B1406C /* WheatherAPI.swift */,
 				CF99C74E2B25154600AA4411 /* Banking.xcdatamodeld */,
 				CFAEA56D2B25295000287F6A /* FileLoader.swift */,
@@ -157,6 +168,7 @@
 				CFBEF94C2B1F8E6200CBF116 /* HomeView.swift */,
 				CF8ADAE52B220C7900B1406C /* WheatherView.swift */,
 				CFD0B7FE2B24811C00275D0F /* Users */,
+				CFEDBD232B2BAA8400D87ECA /* Reviews */,
 				CFD0B7FD2B2480E200275D0F /* Lists */,
 				CFD0B8012B24859A00275D0F /* Add */,
 			);
@@ -202,6 +214,17 @@
 				CF628C862B28F9D9004F6FF9 /* Banking.sqlite-wal */,
 			);
 			path = PreloadData;
+			sourceTree = "<group>";
+		};
+		CFEDBD232B2BAA8400D87ECA /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				CFEDBD1F2B2BA96A00D87ECA /* ReviewItem.swift */,
+				CFEDBD282B2BBCA800D87ECA /* AddReviewView.swift */,
+				CFEDBD212B2BA9EB00D87ECA /* ReviewDetailView.swift */,
+				CFEDBD262B2BB70F00D87ECA /* EditReviewView.swift */,
+			);
+			path = Reviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,11 +309,14 @@
 				CF15A8DD2B1A39FC000C43B3 /* ContentView.swift in Sources */,
 				CF1D6A7D2B24DDAD00787F09 /* BeerListItem.swift in Sources */,
 				CF8ADAE42B220AC300B1406C /* WheatherViewModel.swift in Sources */,
+				CFEDBD222B2BA9EB00D87ECA /* ReviewDetailView.swift in Sources */,
 				CFBEF9512B1F8E8300CBF116 /* UserView.swift in Sources */,
+				CFEDBD252B2BAAF400D87ECA /* Review.swift in Sources */,
 				CF99C7522B2518F400AA4411 /* CoreDataManager.swift in Sources */,
 				CFD0B7FC2B2480B800275D0F /* BeerListView.swift in Sources */,
 				CFD0B7FA2B24806A00275D0F /* ListItem.swift in Sources */,
 				CF89BD872B1F806900959180 /* ViewModel.swift in Sources */,
+				CFEDBD202B2BA96A00D87ECA /* ReviewItem.swift in Sources */,
 				CFBEF94B2B1F8DF800CBF116 /* ListView.swift in Sources */,
 				CFF4CF102B26814D005FB671 /* AppDelegate.swift in Sources */,
 				CF8ADAE02B20B7D900B1406C /* AddManufacturerView.swift in Sources */,
@@ -300,7 +326,9 @@
 				CFBEF9532B1F8EAB00CBF116 /* UserViewModel.swift in Sources */,
 				CFAEA56E2B25295000287F6A /* FileLoader.swift in Sources */,
 				CFD0B8002B24857C00275D0F /* AddBeerView.swift in Sources */,
+				CFEDBD272B2BB70F00D87ECA /* EditReviewView.swift in Sources */,
 				CFD0B8032B2485C400275D0F /* EditBeerView.swift in Sources */,
+				CFEDBD292B2BBCA800D87ECA /* AddReviewView.swift in Sources */,
 				CFBEF9552B1F8F6800CBF116 /* User.swift in Sources */,
 				CF8ADAE22B220A9800B1406C /* WheatherAPI.swift in Sources */,
 				CF15A8DB2B1A39FC000C43B3 /* BeerAppApp.swift in Sources */,

@@ -21,8 +21,3 @@ struct Brand: Codable, Identifiable {
         self.type = type
     }
 }
-
-class Model: ObservableObject{
-    @Published var brands: [Brand] = []
-    @Published var favorites: [Beer] = []
-}

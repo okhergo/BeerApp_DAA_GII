@@ -32,19 +32,16 @@ struct ContentView: View {
                 
             Group {
                 if !userVM.isLoggedIn {
-                    LoginView(userVM: userVM).tag(Tab.user)
-                        .tabItem {
-                            Image(systemName: "person.circle")
-                            Text(String(localized: "User"))}
+                    LoginView().tag(Tab.user)
                 } else {
-                    UserView(userVM: userVM).tag(Tab.user)
-                        .tabItem {
-                            Image(systemName: "person.circle")
-                            Text(String(localized: "User"))}
+                    UserView().tag(Tab.user)
                 }
-            }
+            }.tabItem {
+                Image(systemName: "person.circle")
+                Text(String(localized: "User"))}
         }
         .environmentObject(vm)
+        .environmentObject(userVM)
         .id(selectedTab)
         .onAppear(){
             let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()

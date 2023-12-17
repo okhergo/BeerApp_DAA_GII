@@ -8,24 +8,33 @@
 import SwiftUI
 
 struct UserView: View {
-    @ObservedObject var userVM: UserViewModel
-    private var username: String
-    
-    init(userVM: UserViewModel) {
-        self.userVM = userVM
-        username = userVM.userLogged!.username!
-    }
+    @EnvironmentObject var userVM: UserViewModel
+    @State private var isPresented = false
     
     var body: some View {
         NavigationView {
-            VStack{
-                Text(String(localized: "Developer"))
-                Text(String(localized: "Name"))
-                Text(String(localized: "DAA"))
-                Text(String(localized: "USAL"))
-                Text(String(localized: "Year"))
+            VStack {
+                List{
+                    Section{
+                        ForEach($userVM.reviews, id: \.id) { $review in
+                            ReviewItem(review: $review)
+                        }
+                    } header: {
+                        Text(String(localized: "Reviews"))
+                            .frame(height: 50)
+                    }
+                    .headerProminence(.increased)
+                }
+                Button(action: {
+                    isPresented.toggle()
+                }, label: {
+                    Text(String(localized:"AddNewReview"))
+                })
+                .sheet(isPresented: $isPresented, content: { AddReviewView(dismissSheet: $isPresented, userVM: userVM)
+                })
+                .padding()
             }
-            .navigationTitle(String(localized: "Welcome") + username)
+            .navigationTitle(String(localized: "Welcome") + userVM.userLogged!.username!)
         }
     }
 }

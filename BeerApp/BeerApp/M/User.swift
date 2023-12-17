@@ -20,8 +20,3 @@ struct User: Codable{
         self.specialUser = specialUser
     }
 }
-
-class UserModel: ObservableObject{
-    @Published var isLoggedIn = false
-    @Published var users: [User] = []
-}

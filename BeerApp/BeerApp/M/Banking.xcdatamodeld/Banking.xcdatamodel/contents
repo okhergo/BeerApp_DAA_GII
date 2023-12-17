@@ -8,6 +8,7 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <relationship name="brand" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BrandE" inverseName="beers" inverseEntity="BrandE"/>
+        <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ReviewE" inverseName="beer" inverseEntity="ReviewE"/>
     </entity>
     <entity name="BrandE" representedClassName="BrandE" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="String"/>
@@ -16,8 +17,18 @@
         <attribute name="type" optional="YES" attributeType="String"/>
         <relationship name="beers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BeerE" inverseName="brand" inverseEntity="BeerE"/>
     </entity>
+    <entity name="ReviewE" representedClassName="ReviewE" syncable="YES" codeGenerationType="class">
+        <attribute name="caption" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="points" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="beer" maxCount="1" deletionRule="Nullify" destinationEntity="BeerE" inverseName="reviews" inverseEntity="BeerE"/>
+        <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="UserE" inverseName="reviews" inverseEntity="UserE"/>
+    </entity>
     <entity name="UserE" representedClassName="UserE" syncable="YES" codeGenerationType="class">
-        <attribute name="password" optional="YES" attributeType="String"/>
-        <attribute name="username" optional="YES" attributeType="String"/>
+        <attribute name="password" attributeType="String"/>
+        <attribute name="username" attributeType="String"/>
+        <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ReviewE" inverseName="user" inverseEntity="ReviewE"/>
     </entity>
 </model>

@@ -11,7 +11,12 @@ import CoreData
 class CoreDataManager {
     private let container : NSPersistentContainer!
     
-    init() {
+    static var shared: CoreDataManager = {
+        let instance = CoreDataManager()
+        return instance
+    }()
+    
+    private init() {
         container = NSPersistentContainer(name: "Banking")
         
         setupDatabase()
@@ -58,7 +63,29 @@ class CoreDataManager {
             print("Error saving brand — \(error)")
         }
     }
+    
+    func createReview(beerId : String, caption : String, points : Int, image : Data?, user: UserE, completion: @escaping() -> Void) {
+        let context = container.viewContext
         
+        let beers = fetchAllBeers()
+        let beer = beers.first(where: {$0.id == beerId})
+        
+        let review = ReviewE(context: context)
+        review.id = UUID().uuidString
+        review.caption = caption
+        review.points = Int16(points)
+        review.image = image
+        review.user = user
+        review.beer = beer
+
+        do {
+            try context.save()
+            completion()
+        } catch {
+            print("Error saving brand — \(error)")
+        }
+    }
+    
     func createBeer(title: String, type: String, image: Data, grades: Double, cal: Double, index: Int, completion: @escaping() -> Void) {
         let context = container.viewContext
         let brands = fetchBrands()
@@ -96,6 +123,22 @@ class CoreDataManager {
         }
     }
     
+    func deleteReviews(completion: @escaping() -> Void) {
+        let context = container.viewContext
+        
+        let users = fetchReviews()
+        for user in users{
+            context.delete(user)
+        }
+        
+        do {
+        try context.save()
+            completion()
+        } catch {
+            print("Error deleting brand — \(error)")
+        }
+    }
+    
     func deleteBeer(withId id: String, withBrandId bid: String, completion: @escaping() -> Void) {
         let context = container.viewContext
         
@@ -115,7 +158,22 @@ class CoreDataManager {
             print("Error deleting brand — \(error)")
         }
     }
-
+    
+    func deleteReview(withId id: String, completion: @escaping() -> Void) {
+        let context = container.viewContext
+        
+        let reviews = fetchReviews()
+        guard let i = reviews.firstIndex(where: { $0.id == id }) else {return}
+        context.delete(reviews[i])
+        
+        do {
+        try context.save()
+            completion()
+        } catch {
+            print("Error deleting brand — \(error)")
+        }
+    }
+    
     func fetchUsers() -> [UserE] {
         let fetchRequest : NSFetchRequest<UserE> = UserE.fetchRequest()
         do {
@@ -142,6 +200,28 @@ class CoreDataManager {
         let fetchRequest : NSFetchRequest<BeerE> = BeerE.fetchRequest()
         do {
             let result = try container.viewContext.fetch(fetchRequest).filter({$0.brand == brand})
+            return result
+        } catch {
+            print("Error returning user — \(error)")
+        }
+        return []
+    }
+    
+    func fetchAllBeers() -> [BeerE] {
+        let fetchRequest : NSFetchRequest<BeerE> = BeerE.fetchRequest()
+        do {
+            let result = try container.viewContext.fetch(fetchRequest)
+            return result
+        } catch {
+            print("Error returning user — \(error)")
+        }
+        return []
+    }
+    
+    func fetchReviews() -> [ReviewE] {
+        let fetchRequest : NSFetchRequest<ReviewE> = ReviewE.fetchRequest()
+        do {
+            let result = try container.viewContext.fetch(fetchRequest)
             return result
         } catch {
             print("Error returning user — \(error)")
