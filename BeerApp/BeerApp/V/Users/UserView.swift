@@ -14,6 +14,8 @@ struct UserView: View {
     var body: some View {
         NavigationView {
             VStack {
+                
+                //Listado de las reseñas del usuario
                 List{
                     Section{
                         ForEach($userVM.reviews, id: \.id) { $review in
@@ -25,12 +27,14 @@ struct UserView: View {
                     }
                     .headerProminence(.increased)
                 }
+                
+                //Botón para añadir nuevas reseñas
                 Button(action: {
                     isPresented.toggle()
                 }, label: {
                     Text(String(localized:"AddNewReview"))
                 })
-                .sheet(isPresented: $isPresented, content: { AddReviewView(dismissSheet: $isPresented, userVM: userVM)
+                .sheet(isPresented: $isPresented, content: { AddReviewView(dismissSheet: $isPresented)
                 })
                 .padding()
             }

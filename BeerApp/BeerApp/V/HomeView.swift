@@ -8,24 +8,19 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var descriptionNote: String = ""
     @EnvironmentObject var vm: ViewModel
     
     var body: some View {
         NavigationStack{
             WheatherView()
+            
+            //Listado de cervezas favoritas
             List {
                 Section {
                     if ($vm.favorites.count > 0) {
                         ForEach($vm.favorites, id: \.id) { $fav in
                             HStack {
-                                Image(uiImage: UIImage(data:fav.image)!)
-                                    .resizable()
-                                    .frame(width: 40, height: 40)
-                                    .scaledToFill()
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                    .overlay(Circle().stroke(Color.blue, lineWidth: 1))
-                                    .padding()
+                                CustomProfileImage(data: fav.image)
                                 Text(fav.title)
                                     .font(.title)
                             }

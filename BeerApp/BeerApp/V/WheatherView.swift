@@ -11,31 +11,14 @@ struct WheatherView: View {
     @StateObject private var vm = WeatherViewModel()
     var body: some View{
         ZStack {
+            //Si hace frío o calor modifica la visualización
             if(vm.hourlyForecasts.first?.temperature ?? 0 > 15){
-                Image("HotWeather")
-                    .resizable()
-                    .frame(height: 150)
-                    .cornerRadius(10)
-                    .padding(10)
-                Rectangle()
-                    .background(.yellow)
-                    .opacity(0.2)
-                    .frame(height: 150)
-                    .cornerRadius(10)
-                    .padding(10)
+                CustomWeatherBackground(imageURL: "HotWeather", opacity: 0.4, color: .yellow)
             } else {
-                Image("ColdWeather")
-                    .resizable()
-                    .frame(height: 150)
-                    .cornerRadius(10)
-                    .padding(10)
-                Rectangle()
-                    .background(.blue)
-                    .opacity(0.4)
-                    .frame(height: 150)
-                    .cornerRadius(10)
-                    .padding(10)
+                CustomWeatherBackground(imageURL: "ColdWeather", opacity: 0.7, color: .cyan)
             }
+            
+            //Muestra la temperatura
             VStack {
                 HStack {
                     Text("\(vm.hourlyForecasts.first?.temperature ?? 0, specifier: "%.1f")°C")
@@ -57,12 +40,10 @@ struct WheatherView: View {
                 }
             }
         }
+        //Solicita la ubicación para obtener la temperatura
         .onAppear {
             vm.requestLocation()
         }
-        .alert(isPresented: Binding<Bool>.constant($vm.errorMessage.wrappedValue != nil), content: {
-            Alert(title: Text("Error"), message: Text($vm.errorMessage.wrappedValue ?? "Unknown error"), dismissButton: .default(Text("OK")))
-        })
     }
 }
 
