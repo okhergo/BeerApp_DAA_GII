@@ -29,7 +29,8 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "square.stack")
                     Text(String(localized: "BeerList"))}
-                
+            
+            //Muestra la pantalla de login o la de usuario en función de si ya ha iniciado sesión o no
             Group {
                 if !userVM.isLoggedIn {
                     LoginView().tag(Tab.user)
@@ -40,10 +41,12 @@ struct ContentView: View {
                 Image(systemName: "person.circle")
                 Text(String(localized: "User"))}
         }
+        //Establece las variables del ViewModel y UserViewModel visibles en todas las interfaces, para mantener siempre la misma instancia.
         .environmentObject(vm)
         .environmentObject(userVM)
         .id(selectedTab)
         .onAppear(){
+            //Estilo de TabBar personalizado
             let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithDefaultBackground()
             

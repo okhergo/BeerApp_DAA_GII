@@ -44,12 +44,14 @@ final class UserViewModel: ObservableObject {
         users = manager.fetchUsers()
     }
     
-    func addUser(username: String, password: String) {
+    func addUser(username: String, password: String) -> Bool {
         isBusy = true
         if((users.first(where: {$0.username == username})) == nil){
             manager.createUser(username: username, password: password) { [weak self] in self?.fetchUsers() }
+            if !signIn(username: username, password: password) { return false }
+            return true
         }
-        if !signIn(username: username, password: password) { return }
+        return false
     }
     
     func signIn(username: String, password: String) -> Bool {

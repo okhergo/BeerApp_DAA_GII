@@ -21,39 +21,6 @@ struct LoginView: View {
     
     @EnvironmentObject var userVM: UserViewModel
     
-    fileprivate func LoginButton() -> some View {
-        Button(String(localized: "LoginButton")) {
-            if username.isEmpty {
-                focusedField = .usernameField
-            }
-            if password.isEmpty {
-                focusedField = .passwordField
-            }
-            if userVM.signIn(username: username, password: password) == false {
-                error = "Los datos introducidos son erroneos"
-            }
-            else {
-                error = ""
-            }
-        }
-        .buttonStyle(.borderedProminent)
-        .padding()
-    }
-    
-    fileprivate func SignInButton() -> some View {
-        Button(String(localized: "SignInButton")) {
-            if username.isEmpty {
-                focusedField = .usernameField
-            }
-            if password.isEmpty {
-                focusedField = .passwordField
-            }
-            userVM.addUser(username: username, password: password)
-        }
-        .buttonStyle(.bordered)
-        .padding()
-    }
-    
     var body: some View {
         if(userVM.isBusy){
             ProgressView().progressViewStyle(.circular)
@@ -78,4 +45,44 @@ struct LoginView: View {
             }
         }
     }
+    
+    //BOTONES DE ESTILO PERSONALIZADO
+    fileprivate func LoginButton() -> some View {
+        Button(String(localized: "LoginButton")) {
+            if username.isEmpty {
+                focusedField = .usernameField
+            }
+            if password.isEmpty {
+                focusedField = .passwordField
+            }
+            if !userVM.signIn(username: username, password: password) {
+                error = String(localized: "InvalidData")
+            }
+            else {
+                error = ""
+            }
+        }
+        .buttonStyle(.borderedProminent)
+        .padding()
+    }
+    
+    fileprivate func SignInButton() -> some View {
+        Button(String(localized: "SignInButton")) {
+            if username.isEmpty {
+                focusedField = .usernameField
+            }
+            if password.isEmpty {
+                focusedField = .passwordField
+            }
+            if !userVM.addUser(username: username, password: password) {
+                error = String(localized: "AccountExists")
+            }
+            else {
+                error = ""
+            }
+        }
+        .buttonStyle(.bordered)
+        .padding()
+    }
+    
 }

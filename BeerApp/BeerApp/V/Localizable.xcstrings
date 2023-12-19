@@ -7,11 +7,24 @@
     "%@" : {
 
     },
-    "%lf" : {
-
-    },
     "%lld" : {
 
+    },
+    "AccountExists" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The account already exists. Please log in."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La cuenta ya existe. Por favor inicie sesión."
+          }
+        }
+      }
     },
     "AddNewBeer" : {
       "localizations" : {
@@ -120,24 +133,8 @@
         }
       }
     },
-    "Developer" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Información del desarrollador"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Información del desarrollador:"
-          }
-        }
-      }
-    },
     "DiscardChanges" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -186,16 +183,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Algunos campos están vacíos"
-          }
-        }
-      }
-    },
-    "Error" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error"
           }
         }
       }
@@ -356,6 +343,9 @@
         }
       }
     },
+    "InvalidData" : {
+
+    },
     "LoginButton" : {
       "localizations" : {
         "en" : {
@@ -448,16 +438,6 @@
         }
       }
     },
-    "OK" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aceptar"
-          }
-        }
-      }
-    },
     "Password" : {
       "localizations" : {
         "en" : {
@@ -507,6 +487,7 @@
       }
     },
     "SelectBeerFoto" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -521,6 +502,9 @@
           }
         }
       }
+    },
+    "SelectBeerPhoto" : {
+
     },
     "SelectBeerType" : {
       "localizations" : {
@@ -587,6 +571,7 @@
       }
     },
     "SelectReviewFoto" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -716,6 +701,7 @@
       }
     },
     "Update" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
