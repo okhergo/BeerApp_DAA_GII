@@ -20,7 +20,7 @@ struct HomeView: View {
                     if ($vm.favorites.count > 0) {
                         ForEach($vm.favorites, id: \.id) { $fav in
                             HStack {
-                                CustomProfileImage(data: fav.image)
+                                CustomProfileImage(data:fav.image, size:50)
                                 Text(fav.title)
                                     .font(.title)
                             }

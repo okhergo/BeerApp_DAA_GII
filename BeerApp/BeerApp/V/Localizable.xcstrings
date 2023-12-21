@@ -133,23 +133,6 @@
         }
       }
     },
-    "DiscardChanges" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Discard changes"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descartar"
-          }
-        }
-      }
-    },
     "Dismiss" : {
       "localizations" : {
         "es" : {
@@ -344,7 +327,14 @@
       }
     },
     "InvalidData" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datos incorrectos"
+          }
+        }
+      }
     },
     "LoginButton" : {
       "localizations" : {
@@ -486,25 +476,15 @@
         }
       }
     },
-    "SelectBeerFoto" : {
-      "extractionState" : "stale",
+    "SelectBeerPhoto" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select beer's foto"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona una foto de la cerveza"
+            "value" : "Selecciona una imagen"
           }
         }
       }
-    },
-    "SelectBeerPhoto" : {
-
     },
     "SelectBeerType" : {
       "localizations" : {
@@ -543,13 +523,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Select manufacturer logo"
+            "value" : "Select an image"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selecciona una foto del fabricante"
+            "value" : "Selecciona una foto"
           }
         }
       }
@@ -566,23 +546,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Selecciona la cerveza"
-          }
-        }
-      }
-    },
-    "SelectReviewFoto" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add a photo"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Añade una foto"
           }
         }
       }
@@ -696,17 +659,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo guardar"
-          }
-        }
-      }
-    },
-    "Update" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualizar"
           }
         }
       }

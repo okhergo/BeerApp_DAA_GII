@@ -35,7 +35,6 @@
 		CFD0B7F82B24802B00275D0F /* BeerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B7F72B24802B00275D0F /* BeerDetailView.swift */; };
 		CFD0B8002B24857C00275D0F /* AddBeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B7FF2B24857C00275D0F /* AddBeerView.swift */; };
 		CFD0B8032B2485C400275D0F /* EditBeerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD0B8022B2485C400275D0F /* EditBeerView.swift */; };
-		CFEDBD202B2BA96A00D87ECA /* ReviewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDBD1F2B2BA96A00D87ECA /* ReviewItem.swift */; };
 		CFEDBD222B2BA9EB00D87ECA /* ReviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDBD212B2BA9EB00D87ECA /* ReviewDetailView.swift */; };
 		CFEDBD272B2BB70F00D87ECA /* EditReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDBD262B2BB70F00D87ECA /* EditReviewView.swift */; };
 		CFEDBD292B2BBCA800D87ECA /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDBD282B2BBCA800D87ECA /* AddReviewView.swift */; };
@@ -72,7 +71,6 @@
 		CFD0B7F72B24802B00275D0F /* BeerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDetailView.swift; sourceTree = "<group>"; };
 		CFD0B7FF2B24857C00275D0F /* AddBeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeerView.swift; sourceTree = "<group>"; };
 		CFD0B8022B2485C400275D0F /* EditBeerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBeerView.swift; sourceTree = "<group>"; };
-		CFEDBD1F2B2BA96A00D87ECA /* ReviewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewItem.swift; sourceTree = "<group>"; };
 		CFEDBD212B2BA9EB00D87ECA /* ReviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailView.swift; sourceTree = "<group>"; };
 		CFEDBD262B2BB70F00D87ECA /* EditReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReviewView.swift; sourceTree = "<group>"; };
 		CFEDBD282B2BBCA800D87ECA /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 				CFBEF9442B1F8BB500CBF116 /* VM */,
 				CF15A8DE2B1A39FE000C43B3 /* Assets.xcassets */,
 				CF15A8E02B1A39FE000C43B3 /* Preview Content */,
-				CFBC916C2B320F5B00B9A653 /* CustomViews.swift */,
 			);
 			path = BeerApp;
 			sourceTree = "<group>";
@@ -157,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				CF89BD962B1F878500959180 /* Localizable.xcstrings */,
+				CFBC916C2B320F5B00B9A653 /* CustomViews.swift */,
 				CF15A8DC2B1A39FC000C43B3 /* ContentView.swift */,
 				CFBEF94C2B1F8E6200CBF116 /* HomeView.swift */,
 				CF8ADAE52B220C7900B1406C /* WheatherView.swift */,
@@ -184,7 +182,6 @@
 			children = (
 				CFBEF94E2B1F8E7000CBF116 /* LoginView.swift */,
 				CFBEF9502B1F8E8300CBF116 /* UserView.swift */,
-				CFEDBD1F2B2BA96A00D87ECA /* ReviewItem.swift */,
 				CFEDBD282B2BBCA800D87ECA /* AddReviewView.swift */,
 				CFEDBD212B2BA9EB00D87ECA /* ReviewDetailView.swift */,
 				CFEDBD262B2BB70F00D87ECA /* EditReviewView.swift */,
@@ -287,7 +284,6 @@
 				CFBEF9512B1F8E8300CBF116 /* UserView.swift in Sources */,
 				CF99C7522B2518F400AA4411 /* CoreDataManager.swift in Sources */,
 				CF89BD872B1F806900959180 /* ViewModel.swift in Sources */,
-				CFEDBD202B2BA96A00D87ECA /* ReviewItem.swift in Sources */,
 				CFBEF94B2B1F8DF800CBF116 /* ListView.swift in Sources */,
 				CFF4CF102B26814D005FB671 /* AppDelegate.swift in Sources */,
 				CF8ADAE02B20B7D900B1406C /* AddManufacturerView.swift in Sources */,

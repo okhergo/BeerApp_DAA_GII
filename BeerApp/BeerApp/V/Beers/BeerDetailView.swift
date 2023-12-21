@@ -17,7 +17,7 @@ struct BeerDetailView: View {
         NavigationView{
             VStack{
                 HStack{
-                    CustomProfileImage(data:beer.image)
+                    CustomProfileImage(data:beer.image, size:200)
                     //Añade una estrella si está marcada como favorita
                     if ($vm.favorites.first(where: { $0.id == beer.id }) != nil) {
                         Image(systemName: "star.fill").foregroundColor(.yellow)

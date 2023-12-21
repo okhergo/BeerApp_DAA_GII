@@ -14,29 +14,31 @@ struct ReviewDetailView: View {
     
     var body: some View{
         if(($userVM.reviews.first(where: {$0.id == review.id})) != nil){
-            NavigationStack {
-                Text(review.beer!.title!).font(.title).bold()
-                CustomStarsSelected().padding()
-                Text(review.caption!)
-                if((review.image) != nil){
-                    Image(uiImage: UIImage(data:review.image!)!)
-                        .resizable().scaledToFill()
-                        .frame(width: 200, height: 200)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                        .padding()
+            NavigationView{
+                VStack {
+                    CustomStarsSelected(points: Int(review.points)).padding()
+                    Text(review.caption!).multilineTextAlignment(.center)
+                    if((review.image) != nil){
+                        Image(uiImage: UIImage(data:review.image!)!)
+                            .resizable().scaledToFill()
+                            .frame(width: 200, height: 200)
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .padding()
+                    }
+                    Spacer()
+                    Button(action: {
+                        isEditPresented.toggle()
+                    }, label: {
+                        Label(String(localized: "Edit"), systemImage: "pencil")
+                    })
+                    .sheet(isPresented: $isEditPresented, content: {
+                        EditReviewView(dismissSheet: $isEditPresented, review: $review)
+                    })
+                    .buttonStyle(.bordered)
                 }
-                Spacer()
-                Button(action: {
-                    isEditPresented.toggle()
-                }, label: {
-                    Label(String(localized: "Edit"), systemImage: "pencil")
-                })
-                .sheet(isPresented: $isEditPresented, content: {
-                    EditReviewView(dismissSheet: $isEditPresented, review: $review)
-                })
-                .buttonStyle(.bordered)
+                .padding()
+                .navigationTitle(review.beer!.title!)
             }
-            .padding()
         }
     }
 }
