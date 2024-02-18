@@ -17,7 +17,7 @@ struct EditBeerView: View {
     
     var body: some View {
         //Mismo formulario que para añadir, pero cargando los datos originales
-        AddBeerView(dismissSheet: $dismissSheet, brand: $brand)
+        AddBeerView(dismissSheet: $dismissSheet, brand: $brand, beer: $beer)
         .onAppear(){
             vm.title = beer.title
             vm.grades = String(beer.grades)

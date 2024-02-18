@@ -16,7 +16,10 @@ struct ReviewDetailView: View {
         if(($userVM.reviews.first(where: {$0.id == review.id})) != nil){
             NavigationView{
                 VStack {
-                    CustomStarsSelected(points: Int(review.points)).padding()
+                    CustomStarsSelected(points: $userVM.points).padding()
+                    .onAppear(){
+                        userVM.points = Int(review.points)
+                    }
                     Text(review.caption!).multilineTextAlignment(.center)
                     if((review.image) != nil){
                         Image(uiImage: UIImage(data:review.image!)!)

@@ -16,7 +16,7 @@ struct EditReviewView: View {
     
     var body: some View {
         //Mismo formulario que para añadir, pero cargando los datos originales
-        AddReviewView(dismissSheet: $dismissSheet)
+        AddReviewView(dismissSheet: $dismissSheet, review: $review)
         .onAppear(){
             userVM.points = Int(review.points)
             userVM.caption = review.caption!

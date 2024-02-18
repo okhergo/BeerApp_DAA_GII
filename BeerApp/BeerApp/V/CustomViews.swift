@@ -205,7 +205,7 @@ struct CustomStarsPicker: View{
     
     var body: some View{
         VStack {
-            CustomStarsSelected(points: userVM.points)
+            CustomStarsSelected(points: $userVM.points)
             
             Picker(String(localized:"SelectReviewPoints"), selection: $userVM.points) {
                 ForEach((1...5), id: \.self) {
@@ -218,7 +218,7 @@ struct CustomStarsPicker: View{
 
 //Estilo de estrellas seleccionadas
 struct CustomStarsSelected: View{
-    @State var points: Int
+    @Binding var points: Int
     
     var body: some View{
         HStack {

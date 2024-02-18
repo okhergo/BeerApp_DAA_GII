@@ -13,11 +13,11 @@ struct AddReviewView: View {
     @FocusState private var focusedField: Field?
     @EnvironmentObject var userVM: UserViewModel
     @EnvironmentObject var vm: ViewModel
+    var review: Binding<ReviewE>?
     
     var body: some View {
         NavigationStack{
             Form {
-                
                 //Selector de cerveza
                 Picker(String(localized:"SelectReviewBeer"), selection: $userVM.beerId) {
                     ForEach($vm.brands) { brand in
@@ -46,6 +46,7 @@ struct AddReviewView: View {
                     .foregroundColor(.red)
                 Button(action: {
                     guard !userVM.caption.isEmpty else { return }
+                    if review != nil { userVM.removeReview(withId: review!.id!) }
                     userVM.saveReview()
                     clearFields() })
                 { Text(String(localized: "Save")) }

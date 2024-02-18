@@ -12,6 +12,7 @@ struct AddBeerView: View {
     @EnvironmentObject var vm: ViewModel
     @Binding var dismissSheet: Bool
     @Binding var brand: Brand
+    var beer: Binding<Beer>?
     @State var result: String = ""
     
     var body: some View {
@@ -45,6 +46,7 @@ struct AddBeerView: View {
                     guard !vm.title.isEmpty else { result = String(localized: "EmptyFields"); return }
                     guard !vm.grades.isEmpty else { result = String(localized: "EmptyFields"); return }
                     guard !vm.cal.isEmpty else { result = String(localized: "EmptyFields"); return }
+                    if (beer != nil) { vm.removeBeer(withId: beer!.id, withBrandId: brand.id) }
                     result = vm.saveBeer(withId: brand.id)
                     clearFields() })
                 { Text(String(localized: "Save")) }
